@@ -8,12 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		093F810621F09E15000D0525 /* ReusableDataInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 093F810421F09E15000D0525 /* ReusableDataInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		093F812B21F0AD47000D0525 /* InputParametersProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F812A21F0AD47000D0525 /* InputParametersProtocol.swift */; };
+		093F812D21F0ADA7000D0525 /* InputViewTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F812C21F0ADA7000D0525 /* InputViewTypes.swift */; };
+		093F812F21F0AE27000D0525 /* InputViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F812E21F0AE27000D0525 /* InputViewProtocol.swift */; };
+		093F813121F0AEB0000D0525 /* StatefulInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813021F0AEB0000D0525 /* StatefulInput.swift */; };
+		093F813321F0BFE5000D0525 /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813221F0BFE5000D0525 /* Notification.Name+Extension.swift */; };
+		093F813521F0C840000D0525 /* FirstResponderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813421F0C840000D0525 /* FirstResponderControl.swift */; };
+		093F813721F0CBB5000D0525 /* InputViewValidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813621F0CBB5000D0525 /* InputViewValidatable.swift */; };
+		093F813921F0CC5E000D0525 /* BaseInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813821F0CC5E000D0525 /* BaseInputView.swift */; };
+		093F813B21F0CCB8000D0525 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813A21F0CCB8000D0525 /* InputView.swift */; };
+		093F813D21F0CD2A000D0525 /* InputViewValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813C21F0CD2A000D0525 /* InputViewValidator.swift */; };
+		0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0959848521F0ECB600A9AA4C /* SDKUtility.swift */; };
+		8DCC168D55532C3B23532C60 /* Pods_ReusableDataInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61F57427B22FC361A92D5F5 /* Pods_ReusableDataInput.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		093F810121F09E15000D0525 /* ReusableDataInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReusableDataInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		093F810421F09E15000D0525 /* ReusableDataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReusableDataInput.h; sourceTree = "<group>"; };
 		093F810521F09E15000D0525 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		093F812A21F0AD47000D0525 /* InputParametersProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputParametersProtocol.swift; sourceTree = "<group>"; };
+		093F812C21F0ADA7000D0525 /* InputViewTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewTypes.swift; sourceTree = "<group>"; };
+		093F812E21F0AE27000D0525 /* InputViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewProtocol.swift; sourceTree = "<group>"; };
+		093F813021F0AEB0000D0525 /* StatefulInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulInput.swift; sourceTree = "<group>"; };
+		093F813221F0BFE5000D0525 /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
+		093F813421F0C840000D0525 /* FirstResponderControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponderControl.swift; sourceTree = "<group>"; };
+		093F813621F0CBB5000D0525 /* InputViewValidatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewValidatable.swift; sourceTree = "<group>"; };
+		093F813821F0CC5E000D0525 /* BaseInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputView.swift; sourceTree = "<group>"; };
+		093F813A21F0CCB8000D0525 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		093F813C21F0CD2A000D0525 /* InputViewValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewValidator.swift; sourceTree = "<group>"; };
+		0959848521F0ECB600A9AA4C /* SDKUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKUtility.swift; sourceTree = "<group>"; };
+		216F4E7F43CAEBE641816569 /* Pods-ReusableDataInput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.debug.xcconfig"; sourceTree = "<group>"; };
+		22E219705F9043E601DA0821 /* Pods-ReusableDataInput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.release.xcconfig"; sourceTree = "<group>"; };
+		F61F57427B22FC361A92D5F5 /* Pods_ReusableDataInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReusableDataInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DCC168D55532C3B23532C60 /* Pods_ReusableDataInput.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +59,8 @@
 			children = (
 				093F810321F09E15000D0525 /* ReusableDataInput */,
 				093F810221F09E15000D0525 /* Products */,
+				FB6A432F82C559656F214BA1 /* Pods */,
+				2C05B9839D5F73D8CC0AF788 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -48,8 +77,36 @@
 			children = (
 				093F810421F09E15000D0525 /* ReusableDataInput.h */,
 				093F810521F09E15000D0525 /* Info.plist */,
+				0959848521F0ECB600A9AA4C /* SDKUtility.swift */,
+				093F812C21F0ADA7000D0525 /* InputViewTypes.swift */,
+				093F812A21F0AD47000D0525 /* InputParametersProtocol.swift */,
+				093F812E21F0AE27000D0525 /* InputViewProtocol.swift */,
+				093F813021F0AEB0000D0525 /* StatefulInput.swift */,
+				093F813621F0CBB5000D0525 /* InputViewValidatable.swift */,
+				093F813221F0BFE5000D0525 /* Notification.Name+Extension.swift */,
+				093F813421F0C840000D0525 /* FirstResponderControl.swift */,
+				093F813821F0CC5E000D0525 /* BaseInputView.swift */,
+				093F813C21F0CD2A000D0525 /* InputViewValidator.swift */,
+				093F813A21F0CCB8000D0525 /* InputView.swift */,
 			);
 			path = ReusableDataInput;
+			sourceTree = "<group>";
+		};
+		2C05B9839D5F73D8CC0AF788 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F61F57427B22FC361A92D5F5 /* Pods_ReusableDataInput.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB6A432F82C559656F214BA1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				216F4E7F43CAEBE641816569 /* Pods-ReusableDataInput.debug.xcconfig */,
+				22E219705F9043E601DA0821 /* Pods-ReusableDataInput.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,6 +127,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 093F810921F09E15000D0525 /* Build configuration list for PBXNativeTarget "ReusableDataInput" */;
 			buildPhases = (
+				5FFD4BBACAFC8736D2F18508 /* [CP] Check Pods Manifest.lock */,
 				093F80FC21F09E15000D0525 /* Headers */,
 				093F80FD21F09E15000D0525 /* Sources */,
 				093F80FE21F09E15000D0525 /* Frameworks */,
@@ -95,6 +153,7 @@
 				TargetAttributes = {
 					093F810021F09E15000D0525 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -125,11 +184,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5FFD4BBACAFC8736D2F18508 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReusableDataInput-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		093F80FD21F09E15000D0525 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				093F813121F0AEB0000D0525 /* StatefulInput.swift in Sources */,
+				093F813521F0C840000D0525 /* FirstResponderControl.swift in Sources */,
+				093F813D21F0CD2A000D0525 /* InputViewValidator.swift in Sources */,
+				0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */,
+				093F812B21F0AD47000D0525 /* InputParametersProtocol.swift in Sources */,
+				093F813321F0BFE5000D0525 /* Notification.Name+Extension.swift in Sources */,
+				093F813921F0CC5E000D0525 /* BaseInputView.swift in Sources */,
+				093F812D21F0ADA7000D0525 /* InputViewTypes.swift in Sources */,
+				093F813B21F0CCB8000D0525 /* InputView.swift in Sources */,
+				093F813721F0CBB5000D0525 /* InputViewValidatable.swift in Sources */,
+				093F812F21F0AE27000D0525 /* InputViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +351,9 @@
 		};
 		093F810A21F09E15000D0525 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 216F4E7F43CAEBE641816569 /* Pods-ReusableDataInput.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -278,6 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adviqo.ReusableDataInput;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -285,7 +379,9 @@
 		};
 		093F810B21F09E15000D0525 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22E219705F9043E601DA0821 /* Pods-ReusableDataInput.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

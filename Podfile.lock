@@ -1,0 +1,22 @@
+PODS:
+  - InputMask (4.0.2)
+  - iOSReusableExtensions (1.0.4):
+    - InputMask (~> 4.0)
+
+DEPENDENCIES:
+  - InputMask (~> 4.0)
+  - iOSReusableExtensions
+
+SPEC REPOS:
+  https://github.com/adviqo-GmbH/iOSPodSpecs.git:
+    - iOSReusableExtensions
+  https://github.com/cocoapods/specs.git:
+    - InputMask
+
+SPEC CHECKSUMS:
+  InputMask: b9df7a44c044f59485b2d596661e6bd4334bddb4
+  iOSReusableExtensions: 8108846febfb9c5bb6d46b4a578e2b54cc0760f8
+
+PODFILE CHECKSUM: 519814a4669cfbfdb9e154149c8ca5b905135075
+
+COCOAPODS: 1.5.3

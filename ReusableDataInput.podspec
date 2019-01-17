@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "ReusableDataInput"
   s.version      = "1.0.0"
-  s.summary      = "A short description of ReusableDataInput."
+  s.summary      = "Set of user input with animated title, formatting and data validation."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  A short description of ReusableDataInput.
+  Set of user input with animated title, formatting and data validation: TextInput, MaskedTextInput, Picker, DatePicker, MonthYearPicker, CountryPicker, PhoneNumberPicker, TextView.
                    DESC
 
   s.homepage     = "https://github.com/adviqo-GmbH/iOSReusableDataInput"
@@ -142,6 +142,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.dependency "InputMask", "~> 4.0"
+  s.dependency "iOSReusableExtensions"
 
 end
