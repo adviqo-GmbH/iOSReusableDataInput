@@ -18,6 +18,11 @@
 		093F813921F0CC5E000D0525 /* BaseInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813821F0CC5E000D0525 /* BaseInputView.swift */; };
 		093F813B21F0CCB8000D0525 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813A21F0CCB8000D0525 /* InputView.swift */; };
 		093F813D21F0CD2A000D0525 /* InputViewValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F813C21F0CD2A000D0525 /* InputViewValidator.swift */; };
+		09436E1E21F2105C00AD010A /* InputViewCollectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09436E1D21F2105C00AD010A /* InputViewCollectionProtocol.swift */; };
+		09436E2321F2117B00AD010A /* DesignableTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09436E2121F2117B00AD010A /* DesignableTextInput.swift */; };
+		09436E2421F2117B00AD010A /* DesignableTextInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09436E2221F2117B00AD010A /* DesignableTextInput.xib */; };
+		09436E2621F2124200AD010A /* TextInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09436E2521F2124200AD010A /* TextInputDelegate.swift */; };
+		09436E2821F213B500AD010A /* AutoCompleteTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09436E2721F213B500AD010A /* AutoCompleteTextFieldDelegate.swift */; };
 		0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0959848521F0ECB600A9AA4C /* SDKUtility.swift */; };
 		8DCC168D55532C3B23532C60 /* Pods_ReusableDataInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61F57427B22FC361A92D5F5 /* Pods_ReusableDataInput.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +41,11 @@
 		093F813821F0CC5E000D0525 /* BaseInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputView.swift; sourceTree = "<group>"; };
 		093F813A21F0CCB8000D0525 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		093F813C21F0CD2A000D0525 /* InputViewValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewValidator.swift; sourceTree = "<group>"; };
+		09436E1D21F2105C00AD010A /* InputViewCollectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewCollectionProtocol.swift; sourceTree = "<group>"; };
+		09436E2121F2117B00AD010A /* DesignableTextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextInput.swift; sourceTree = "<group>"; };
+		09436E2221F2117B00AD010A /* DesignableTextInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignableTextInput.xib; sourceTree = "<group>"; };
+		09436E2521F2124200AD010A /* TextInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputDelegate.swift; sourceTree = "<group>"; };
+		09436E2721F213B500AD010A /* AutoCompleteTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextFieldDelegate.swift; sourceTree = "<group>"; };
 		0959848521F0ECB600A9AA4C /* SDKUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKUtility.swift; sourceTree = "<group>"; };
 		216F4E7F43CAEBE641816569 /* Pods-ReusableDataInput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.debug.xcconfig"; sourceTree = "<group>"; };
 		22E219705F9043E601DA0821 /* Pods-ReusableDataInput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,18 +88,39 @@
 				093F810421F09E15000D0525 /* ReusableDataInput.h */,
 				093F810521F09E15000D0525 /* Info.plist */,
 				0959848521F0ECB600A9AA4C /* SDKUtility.swift */,
+				09436E1F21F2107100AD010A /* Protocols */,
 				093F812C21F0ADA7000D0525 /* InputViewTypes.swift */,
+				093F813221F0BFE5000D0525 /* Notification.Name+Extension.swift */,
+				093F813421F0C840000D0525 /* FirstResponderControl.swift */,
+				093F813821F0CC5E000D0525 /* BaseInputView.swift */,
+				093F813A21F0CCB8000D0525 /* InputView.swift */,
+				09436E2021F2110E00AD010A /* DesignableTextInput */,
+			);
+			path = ReusableDataInput;
+			sourceTree = "<group>";
+		};
+		09436E1F21F2107100AD010A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
 				093F812A21F0AD47000D0525 /* InputParametersProtocol.swift */,
 				093F812E21F0AE27000D0525 /* InputViewProtocol.swift */,
 				093F813021F0AEB0000D0525 /* StatefulInput.swift */,
 				093F813621F0CBB5000D0525 /* InputViewValidatable.swift */,
-				093F813221F0BFE5000D0525 /* Notification.Name+Extension.swift */,
-				093F813421F0C840000D0525 /* FirstResponderControl.swift */,
-				093F813821F0CC5E000D0525 /* BaseInputView.swift */,
 				093F813C21F0CD2A000D0525 /* InputViewValidator.swift */,
-				093F813A21F0CCB8000D0525 /* InputView.swift */,
+				09436E1D21F2105C00AD010A /* InputViewCollectionProtocol.swift */,
 			);
-			path = ReusableDataInput;
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		09436E2021F2110E00AD010A /* DesignableTextInput */ = {
+			isa = PBXGroup;
+			children = (
+				09436E2521F2124200AD010A /* TextInputDelegate.swift */,
+				09436E2721F213B500AD010A /* AutoCompleteTextFieldDelegate.swift */,
+				09436E2121F2117B00AD010A /* DesignableTextInput.swift */,
+				09436E2221F2117B00AD010A /* DesignableTextInput.xib */,
+			);
+			path = DesignableTextInput;
 			sourceTree = "<group>";
 		};
 		2C05B9839D5F73D8CC0AF788 /* Frameworks */ = {
@@ -179,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09436E2421F2117B00AD010A /* DesignableTextInput.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,9 +246,13 @@
 				093F813521F0C840000D0525 /* FirstResponderControl.swift in Sources */,
 				093F813D21F0CD2A000D0525 /* InputViewValidator.swift in Sources */,
 				0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */,
+				09436E2321F2117B00AD010A /* DesignableTextInput.swift in Sources */,
 				093F812B21F0AD47000D0525 /* InputParametersProtocol.swift in Sources */,
 				093F813321F0BFE5000D0525 /* Notification.Name+Extension.swift in Sources */,
 				093F813921F0CC5E000D0525 /* BaseInputView.swift in Sources */,
+				09436E2621F2124200AD010A /* TextInputDelegate.swift in Sources */,
+				09436E1E21F2105C00AD010A /* InputViewCollectionProtocol.swift in Sources */,
+				09436E2821F213B500AD010A /* AutoCompleteTextFieldDelegate.swift in Sources */,
 				093F812D21F0ADA7000D0525 /* InputViewTypes.swift in Sources */,
 				093F813B21F0CCB8000D0525 /* InputView.swift in Sources */,
 				093F813721F0CBB5000D0525 /* InputViewValidatable.swift in Sources */,
