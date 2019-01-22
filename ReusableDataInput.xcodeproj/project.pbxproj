@@ -23,6 +23,16 @@
 		09436E2421F2117B00AD010A /* DesignableTextInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09436E2221F2117B00AD010A /* DesignableTextInput.xib */; };
 		09436E2621F2124200AD010A /* TextInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09436E2521F2124200AD010A /* TextInputDelegate.swift */; };
 		09436E2821F213B500AD010A /* AutoCompleteTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09436E2721F213B500AD010A /* AutoCompleteTextFieldDelegate.swift */; };
+		0958C79121F726EF00D864C7 /* DesignableDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0958C78621F726EF00D864C7 /* DesignableDatePicker.xib */; };
+		0958C79221F726EF00D864C7 /* DatePickerInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0958C78821F726EF00D864C7 /* DatePickerInputViewController.xib */; };
+		0958C79321F726EF00D864C7 /* DatePickerInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C78921F726EF00D864C7 /* DatePickerInputViewController.swift */; };
+		0958C79421F726EF00D864C7 /* DesignableDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C78A21F726EF00D864C7 /* DesignableDatePicker.swift */; };
+		0958C79521F726EF00D864C7 /* PickerInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0958C78D21F726EF00D864C7 /* PickerInputViewController.xib */; };
+		0958C79621F726EF00D864C7 /* PickerInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C78E21F726EF00D864C7 /* PickerInputViewController.swift */; };
+		0958C79721F726EF00D864C7 /* DesignablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0958C78F21F726EF00D864C7 /* DesignablePicker.xib */; };
+		0958C79821F726EF00D864C7 /* DesignablePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C79021F726EF00D864C7 /* DesignablePicker.swift */; };
+		0958C79A21F7275B00D864C7 /* PickerInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C79921F7275B00D864C7 /* PickerInputDelegate.swift */; };
+		0958C79C21F7364400D864C7 /* DatePickerInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C79B21F7364400D864C7 /* DatePickerInputDelegate.swift */; };
 		0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0959848521F0ECB600A9AA4C /* SDKUtility.swift */; };
 		8DCC168D55532C3B23532C60 /* Pods_ReusableDataInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61F57427B22FC361A92D5F5 /* Pods_ReusableDataInput.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +56,16 @@
 		09436E2221F2117B00AD010A /* DesignableTextInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignableTextInput.xib; sourceTree = "<group>"; };
 		09436E2521F2124200AD010A /* TextInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputDelegate.swift; sourceTree = "<group>"; };
 		09436E2721F213B500AD010A /* AutoCompleteTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextFieldDelegate.swift; sourceTree = "<group>"; };
+		0958C78621F726EF00D864C7 /* DesignableDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignableDatePicker.xib; sourceTree = "<group>"; };
+		0958C78821F726EF00D864C7 /* DatePickerInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerInputViewController.xib; sourceTree = "<group>"; };
+		0958C78921F726EF00D864C7 /* DatePickerInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerInputViewController.swift; sourceTree = "<group>"; };
+		0958C78A21F726EF00D864C7 /* DesignableDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableDatePicker.swift; sourceTree = "<group>"; };
+		0958C78D21F726EF00D864C7 /* PickerInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerInputViewController.xib; sourceTree = "<group>"; };
+		0958C78E21F726EF00D864C7 /* PickerInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerInputViewController.swift; sourceTree = "<group>"; };
+		0958C78F21F726EF00D864C7 /* DesignablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignablePicker.xib; sourceTree = "<group>"; };
+		0958C79021F726EF00D864C7 /* DesignablePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignablePicker.swift; sourceTree = "<group>"; };
+		0958C79921F7275B00D864C7 /* PickerInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerInputDelegate.swift; sourceTree = "<group>"; };
+		0958C79B21F7364400D864C7 /* DatePickerInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerInputDelegate.swift; sourceTree = "<group>"; };
 		0959848521F0ECB600A9AA4C /* SDKUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKUtility.swift; sourceTree = "<group>"; };
 		216F4E7F43CAEBE641816569 /* Pods-ReusableDataInput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.debug.xcconfig"; sourceTree = "<group>"; };
 		22E219705F9043E601DA0821 /* Pods-ReusableDataInput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +114,8 @@
 				093F813421F0C840000D0525 /* FirstResponderControl.swift */,
 				093F813821F0CC5E000D0525 /* BaseInputView.swift */,
 				093F813A21F0CCB8000D0525 /* InputView.swift */,
+				0958C78B21F726EF00D864C7 /* DesignablePicker */,
+				0958C78521F726EF00D864C7 /* DesignableDatePicker */,
 				09436E2021F2110E00AD010A /* DesignableTextInput */,
 			);
 			path = ReusableDataInput;
@@ -121,6 +143,46 @@
 				09436E2221F2117B00AD010A /* DesignableTextInput.xib */,
 			);
 			path = DesignableTextInput;
+			sourceTree = "<group>";
+		};
+		0958C78521F726EF00D864C7 /* DesignableDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				0958C79B21F7364400D864C7 /* DatePickerInputDelegate.swift */,
+				0958C78A21F726EF00D864C7 /* DesignableDatePicker.swift */,
+				0958C78621F726EF00D864C7 /* DesignableDatePicker.xib */,
+				0958C78721F726EF00D864C7 /* DatePickerInputViewController */,
+			);
+			path = DesignableDatePicker;
+			sourceTree = "<group>";
+		};
+		0958C78721F726EF00D864C7 /* DatePickerInputViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0958C78821F726EF00D864C7 /* DatePickerInputViewController.xib */,
+				0958C78921F726EF00D864C7 /* DatePickerInputViewController.swift */,
+			);
+			path = DatePickerInputViewController;
+			sourceTree = "<group>";
+		};
+		0958C78B21F726EF00D864C7 /* DesignablePicker */ = {
+			isa = PBXGroup;
+			children = (
+				0958C79921F7275B00D864C7 /* PickerInputDelegate.swift */,
+				0958C79021F726EF00D864C7 /* DesignablePicker.swift */,
+				0958C78F21F726EF00D864C7 /* DesignablePicker.xib */,
+				0958C78C21F726EF00D864C7 /* PickerInputViewController */,
+			);
+			path = DesignablePicker;
+			sourceTree = "<group>";
+		};
+		0958C78C21F726EF00D864C7 /* PickerInputViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0958C78D21F726EF00D864C7 /* PickerInputViewController.xib */,
+				0958C78E21F726EF00D864C7 /* PickerInputViewController.swift */,
+			);
+			path = PickerInputViewController;
 			sourceTree = "<group>";
 		};
 		2C05B9839D5F73D8CC0AF788 /* Frameworks */ = {
@@ -211,6 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				09436E2421F2117B00AD010A /* DesignableTextInput.xib in Resources */,
+				0958C79121F726EF00D864C7 /* DesignableDatePicker.xib in Resources */,
+				0958C79221F726EF00D864C7 /* DatePickerInputViewController.xib in Resources */,
+				0958C79721F726EF00D864C7 /* DesignablePicker.xib in Resources */,
+				0958C79521F726EF00D864C7 /* PickerInputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,9 +309,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				093F813121F0AEB0000D0525 /* StatefulInput.swift in Sources */,
+				0958C79A21F7275B00D864C7 /* PickerInputDelegate.swift in Sources */,
+				0958C79821F726EF00D864C7 /* DesignablePicker.swift in Sources */,
+				0958C79321F726EF00D864C7 /* DatePickerInputViewController.swift in Sources */,
 				093F813521F0C840000D0525 /* FirstResponderControl.swift in Sources */,
 				093F813D21F0CD2A000D0525 /* InputViewValidator.swift in Sources */,
+				0958C79C21F7364400D864C7 /* DatePickerInputDelegate.swift in Sources */,
 				0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */,
+				0958C79621F726EF00D864C7 /* PickerInputViewController.swift in Sources */,
 				09436E2321F2117B00AD010A /* DesignableTextInput.swift in Sources */,
 				093F812B21F0AD47000D0525 /* InputParametersProtocol.swift in Sources */,
 				093F813321F0BFE5000D0525 /* Notification.Name+Extension.swift in Sources */,
@@ -256,6 +327,7 @@
 				093F812D21F0ADA7000D0525 /* InputViewTypes.swift in Sources */,
 				093F813B21F0CCB8000D0525 /* InputView.swift in Sources */,
 				093F813721F0CBB5000D0525 /* InputViewValidatable.swift in Sources */,
+				0958C79421F726EF00D864C7 /* DesignableDatePicker.swift in Sources */,
 				093F812F21F0AE27000D0525 /* InputViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

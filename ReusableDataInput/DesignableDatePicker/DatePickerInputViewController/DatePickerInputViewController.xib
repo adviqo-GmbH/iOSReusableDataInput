@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerInputViewController" customModule="DesignableDatePickerDemoObjC" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="iDR-TL-lGS" id="V2r-29-bRo"/>
+                <outlet property="datePicker" destination="XQn-sH-tle" id="4qP-CI-flR"/>
+                <outlet property="dividerView" destination="V1M-e0-xzy" id="j2y-ZL-Fxr"/>
+                <outlet property="doneButton" destination="mXY-EG-o9Q" id="Cg4-df-axP"/>
+                <outlet property="toolbar" destination="uxO-uR-kXb" id="ffh-9Z-LaW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1M-e0-xzy" userLabel="dividerView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Hhc-7n-vjc"/>
+                    </constraints>
+                </view>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="XQn-sH-tle" userLabel="datePicker">
+                    <rect key="frame" x="0.0" y="1" width="375" height="215"/>
+                    <date key="date" timeIntervalSinceReferenceDate="516801259.76826">
+                        <!--2017-05-18 11:54:19 +0000-->
+                    </date>
+                    <date key="minimumDate" timeIntervalSinceReferenceDate="-2556190800">
+                        <!--1920-01-01 11:00:00 +0000-->
+                    </date>
+                </datePicker>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="XQn-sH-tle" secondAttribute="trailing" id="7f7-J5-gex"/>
+                <constraint firstItem="V1M-e0-xzy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Tap-vS-xk9"/>
+                <constraint firstItem="XQn-sH-tle" firstAttribute="top" secondItem="V1M-e0-xzy" secondAttribute="bottom" id="V7f-pb-G1u"/>
+                <constraint firstAttribute="trailing" secondItem="V1M-e0-xzy" secondAttribute="trailing" id="dBM-3b-rEE"/>
+                <constraint firstItem="XQn-sH-tle" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eg7-dg-Xvi"/>
+                <constraint firstItem="V1M-e0-xzy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iXA-aG-kUo"/>
+                <constraint firstAttribute="bottom" secondItem="XQn-sH-tle" secondAttribute="bottom" id="un5-gJ-dOA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="54"/>
+        </view>
+        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uxO-uR-kXb" userLabel="toolbar">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <items>
+                <barButtonItem title="Cancel" id="iDR-TL-lGS" userLabel="cancelButton">
+                    <connections>
+                        <action selector="cancelAction:" destination="-1" id="zmf-ZI-kM5"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="rHY-Ww-JKt"/>
+                <barButtonItem title="Done" id="mXY-EG-o9Q" userLabel="doneButton">
+                    <connections>
+                        <action selector="doneAction:" destination="-1" id="Bkd-UD-5XH"/>
+                    </connections>
+                </barButtonItem>
+            </items>
+            <point key="canvasLocation" x="42" y="257"/>
+        </toolbar>
+    </objects>
+</document>

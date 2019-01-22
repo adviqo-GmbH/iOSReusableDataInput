@@ -365,6 +365,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
     internal func set(font: UIFont)
     {
     }
+    // didSet for textColor
     internal func set(textColor: UIColor?)
     {
         #if TARGET_INTERFACE_BUILDER
