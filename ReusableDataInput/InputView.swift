@@ -152,8 +152,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
         }
     }
     
-    //MARK: info state properties
-    
+    // MARK: info state properties
     @objc @IBInspectable public var infoColor: UIColor? {
         didSet {
             self.apply(state: self.state)
@@ -196,6 +195,14 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
             self.leftImageView.frame = self.leftImageViewFrame(withImage: newValue, andMode: self.mode)
             self.dataView.frame = self.dataViewFrame(forMode: self.mode)
             self.titleLabel.frame = self.titleLabelFrame(forMode: self.mode)
+            // update separator if needed
+            if let leftSeparatorConstraint = self.leftSeparatorConstraint {
+                if newValue == nil {
+                    leftSeparatorConstraint.constant = -InputViewConstants.leftContentOffset
+                } else {
+                    leftSeparatorConstraint.constant = 0
+                }
+            }
         }
         get {
             return self.leftImageView.image
@@ -259,6 +266,8 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
     }
     
     // MARK: - Separator
+    internal var separatorView: UIView?
+    internal var leftSeparatorConstraint: NSLayoutConstraint?
     @objc public var separatorColor: UIColor? {
         didSet {
             guard let separator = self.separatorView else {
@@ -299,7 +308,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
             var formatString = ""
             
             // Horizontal constraints
-            formatString = "H:|-0-[separatorView]-0-|"
+            formatString = "H:[separatorView]-0-|"
             NSLayoutConstraint.activate(
                 NSLayoutConstraint.constraints(
                     withVisualFormat: formatString,
@@ -308,6 +317,12 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
                     views: views
                 )
             )
+            
+            let leftSeparatorConstraint = NSLayoutConstraint(item: separatorView, attribute: .left, relatedBy: .equal, toItem: self.dataView, attribute: .left, multiplier: 1.0, constant: -InputViewConstants.leftContentOffset)
+            NSLayoutConstraint.activate([
+                leftSeparatorConstraint
+            ])
+            self.leftSeparatorConstraint = leftSeparatorConstraint
             
             // Vertical constraints
             formatString = "V:[separatorView(separatorHeight)]-0-|"
@@ -417,7 +432,6 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
     fileprivate var view: UIView!
     internal var dataView: UIView!
     internal var responder: UIView!
-    internal var separatorView: UIView?
     public var separatorHeight: CGFloat = 1
     
     fileprivate var _mode: InputViewMode = .placeholder
@@ -491,19 +505,15 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
     internal func loadViewFromXib() -> UIView
     {
         let className = String.className(type(of: self))
-        
         let podBundle = Bundle(for: type(of: self))
-        //        print("[\(type(of: self)) \(#function)] podBundle: \(podBundle)")
         
         guard let bundleURL = podBundle.url(forResource: SDKUtility.frameworkName(), withExtension: "bundle") else {
             fatalError("Could not find bundle URL for \(SDKUtility.frameworkName())")
         }
-        //        print("[\(type(of: self)) \(#function)] bundleURL: \(bundleURL)")
         
         guard let bundle = Bundle(url: bundleURL) else {
             fatalError("Could not load the bundle for \(SDKUtility.frameworkName())")
         }
-        //        print("[\(type(of: self)) \(#function)] bundle: \(bundle)")
         
         let nib = UINib(nibName: className, bundle: bundle)
         let loadedView = nib.instantiate(withOwner: self, options: nil).first as! UIView
@@ -986,9 +996,9 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
         
         /*
          // debug
+         self.dataView.backgroundColor = .green
          self.titleLabel.backgroundColor = .orange
          self.titleLabel.alpha = 0.3
-         self.dataView.backgroundColor = .green
          self.dataView.alpha = 0.3
          self.rightImageView.backgroundColor = .red
          self.rightImageView.alpha = 0.3
