@@ -287,6 +287,12 @@ import UIKit
          print("[\(type(of: self)) \(#function)]")
          */
         if let delegateView = self.delegate?.pickerInput?(self, viewForRow: row, reusing: view) {
+            delegateView.frame = CGRect(
+                x: 0,
+                y: 0,
+                width: controller.picker.rowSize(forComponent: 0).width,
+                height: controller.picker.rowSize(forComponent: 0).height
+            )
             return delegateView
         }
         return nil
