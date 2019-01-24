@@ -1,14 +1,17 @@
 //
-//  DesignablePicker.swift
+//  DesignableMonthYearPicker.swift
 //  ReusableDataInput
 //
 //  Created by Oleksandr Pronin on 25.09.17.
 //  Copyright © 2017 Aleksandr Pronin. All rights reserved.
 //
 
+// Based on bendodson/MonthYearPickerView-Swift
+// https://github.com/bendodson/MonthYearPickerView-Swift
+
 import UIKit
 
-@objc @IBDesignable public class DesignablePicker: InputView, PickerInputViewControllerDelegate
+@objc @IBDesignable public class DesignableMonthYearPicker: InputView
 {
     // MARK: - Controls
     @objc public var cancelButton: UIBarButtonItem! {
@@ -31,9 +34,9 @@ import UIKit
     }
     
     // MARK: - Public properties
-    @objc public weak var delegate: PickerInputDelegate?
+    @objc public weak var delegate: MonthYearPickerInputDelegate?
     
-    // MARK: picker
+    // MARK: - Picker
     @objc @IBInspectable public var pickerColor: UIColor? {
         get {
             return self.pickerInputViewController.tintColor
@@ -59,7 +62,7 @@ import UIKit
         }
     }
     
-    // MARK: - Getters & setters for superclasses
+    // MARK: - Getters & setters for superclas
     // didSet for font
     override func set(font: UIFont)
     {
@@ -76,76 +79,36 @@ import UIKit
     // MARK: - Data management
     @objc override public var value: String? {
         get {
-            return self._value
-        }
-        set {
-            self.state = .normal
-            
-            guard
-                let valueString = newValue,
-                valueString.count > 0
-            else
-            {
-                self.text = nil
-                self.leftImage = nil
-                self._value = nil
-                return
-            }
-            
-            guard
-                let data = self.data,
-                data.count > 0,
-                let index = data.index(of: valueString)
-            else { return }
-            
-            self.selectedIndex = data.distance(from: data.startIndex, to: index)
-            self._value = valueString
-            
-            if
-                let delegateTitle = self.delegate?.pickerInput?(self, titleForRow: self.selectedIndex),
-                delegateTitle.count > 0
-            {
-                self.text = delegateTitle
-            } else {
-                self.text = valueString
-            }
+            return self.text
         }
     }
-    @objc public var data: [String]? {
+    @objc public var month: Int {
         get {
-            return self.pickerInputViewController.data
-        }
-        set {
-            self.pickerInputViewController.data = newValue
+            return self.pickerInputViewController.month
         }
     }
-    @objc public var selectedIndex: Int = NSNotFound {
-        didSet {
-            guard selectedIndex != NSNotFound else {
-                return
-            }
-            self.pickerInputViewController.selectedIndex = selectedIndex
+    @objc public var year: Int {
+        get {
+            return self.pickerInputViewController.year
         }
     }
-    
-    // MARK: - Init
-    @objc public override init(frame: CGRect)
+    @objc public func set(month: Int, andYear year: Int, animated: Bool = true)
     {
-        super.init(frame: frame)
-        self.setupViewsOnLoad(withDataView: self.textLabel, andResponder: self.responderView)
+        self.pickerInputViewController.month = month
+        self.pickerInputViewController.year = year
+        if self.state == .error {
+            self.state = .normal
+        }
+        if let title = self.delegate?.pickerInput?(self, formattedStringForMonth: month, andYear: year) {
+            self.set(text: title, animated: animated)
+        } else {
+            // default format
+            let yearString = "\(year)".substring(2)
+            let title = "\(String(format: "%02d", month))/\(yearString)"
+            self.set(text: title, animated: animated)
+        }
     }
-    @objc public required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        self.setupViewsOnLoad(withDataView: self.textLabel, andResponder: self.responderView)
-    }
-    
-    // MARK: - Private
-    fileprivate var _value: String?
-    @IBOutlet internal weak var textLabel: UILabel!
-    @IBOutlet internal weak var responderView: FirstResponderControl!
-    internal var pickerInputViewController: PickerInputViewController!
-    internal var text:String? {
+    @objc public var text:String? {
         set(newText) {
             self.set(text: newText, animated: false)
         }
@@ -153,7 +116,7 @@ import UIKit
             return self.textLabel.text
         }
     }
-    internal func set(text perhapsText:String?, animated:Bool)
+    @objc public func set(text perhapsText:String?, animated:Bool)
     {
         guard let text = perhapsText else {
             self.textLabel.text = nil
@@ -167,6 +130,23 @@ import UIKit
         self.textLabel.text = text
         self.set(mode: .title, animated: animated)
     }
+    
+    // MARK: - Init
+   @objc public override init(frame: CGRect)
+    {
+        super.init(frame: frame)
+        self.setupViewsOnLoad(withDataView: self.textLabel, andResponder: self.responderView)
+    }
+    @objc public required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        self.setupViewsOnLoad(withDataView: self.textLabel, andResponder: self.responderView)
+    }
+    
+    // MARK: - Private
+    @IBOutlet internal weak var textLabel: UILabel!
+    @IBOutlet internal weak var responderView: FirstResponderControl!
+    internal var pickerInputViewController: MonthYearPickerInputViewController!
     
     internal override func xibSetup()
     {
@@ -210,7 +190,7 @@ import UIKit
         super.setupViewsOnLoad(withDataView: dataView, andResponder: responder)
         self.responderView.delegate = self
         
-        let className = String.className(PickerInputViewController.classForCoder())
+        let className = String.className(MonthYearPickerInputViewController.classForCoder())
         let podBundle = Bundle(for: type(of: self))
         guard let bundleURL = podBundle.url(forResource: SDKUtility.frameworkName(), withExtension: "bundle") else {
             fatalError("Could not find bundle URL for \(SDKUtility.frameworkName())")
@@ -218,7 +198,7 @@ import UIKit
         guard let bundle = Bundle(url: bundleURL) else {
             fatalError("Could not load the bundle for \(SDKUtility.frameworkName())")
         }
-        self.pickerInputViewController = PickerInputViewController(nibName: className, bundle: bundle)
+        self.pickerInputViewController = MonthYearPickerInputViewController(nibName: className, bundle: bundle)
         
         if
             let inputView = self.pickerInputViewController.view,
@@ -238,81 +218,61 @@ import UIKit
         self.pickerFont = UIFont.systemFont(ofSize: 14)
         
         #endif
-        
+
         #if !TARGET_INTERFACE_BUILDER
         
         self.textLabel.text = nil
         
         #endif
     }
-    
-    // MARK: - PickerInputViewControllerDelegate
-    internal func pickerInputViewControllerDidCancel(_ controller: PickerInputViewController)
+}
+
+// MARK: - MonthYearPickerInputViewControllerDelegate
+extension DesignableMonthYearPicker: MonthYearPickerInputViewControllerDelegate
+{
+    func pickerInputViewControllerDidCancel(_ controller: MonthYearPickerInputViewController)
     {
-        /*
-         print("[\(type(of: self)) \(#function)]")
-         */
         _ = self.responderView.resignFirstResponder()
         self.delegate?.pickerInputDidCancel?(self)
     }
-    internal func pickerInput(_ controller: PickerInputViewController, doneWithValue value: String, andIndex index:Int)
+    
+    func pickerInput(_ controller: MonthYearPickerInputViewController, doneWithMonth month: Int, year: Int)
     {
-        /*
-         print("[\(type(of: self)) \(#function)]")
-         */
-        self._value = value
-        self.selectedIndex = index
         _ = self.responderView.resignFirstResponder()
-        if let title = self.delegate?.pickerInput?(self, titleForRow: index) {
+        if let title = self.delegate?.pickerInput?(self, formattedStringForMonth: month, andYear: year) {
             self.set(text: title, animated: true)
         } else {
-            self.set(text: value, animated: true)
+            // default format
+            let yearString = "\(year)".substring(2)
+            let title = "\(String(format: "%02d", month))/\(yearString)"
+            self.set(text: title, animated: true)
         }
-        self.delegate?.pickerInput(self, doneWithValue: value, andIndex: index)
+        self.delegate?.pickerInput(self, doneWithMonth: month, andYear: year)
     }
-    internal func pickerInput(_ controller: PickerInputViewController, changedWithValue value: String, andIndex index:Int)
+    
+    func pickerInput(_ controller: MonthYearPickerInputViewController, changedWithMonth month: Int, year: Int)
     {
-        /*
-         print("[\(type(of: self)) \(#function)]")
-         */
-        self.delegate?.pickerInput?(self, changedWithValue: value, andIndex: index)
+        self.delegate?.pickerInput?(self, changedWithMonth: month, year: year)
     }
-    internal func pickerInput(_ controller: PickerInputViewController, viewForRow row: Int, reusing view: UIView?) -> UIView?
+    
+    func pickerInput(_ controller: MonthYearPickerInputViewController, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView?
     {
-        /*
-         print("[\(type(of: self)) \(#function)]")
-         */
-        if let delegateView = self.delegate?.pickerInput?(self, viewForRow: row, reusing: view) {
-            delegateView.frame = CGRect(
-                x: 0,
-                y: 0,
-                width: controller.picker.rowSize(forComponent: 0).width,
-                height: controller.picker.rowSize(forComponent: 0).height
-            )
+        if let delegateView = self.delegate?.pickerInput?(self, viewForRow: row, forComponent: component, reusing: view) {
             return delegateView
         }
         return nil
     }
-    internal func pickerInput(_ controller: PickerInputViewController, titleForRow row: Int) -> String?
+    
+    func pickerInput(_ controller: MonthYearPickerInputViewController, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        /*
-         print("[\(type(of: self)) \(#function)]")
-         */
-        if let delegateTitle = self.delegate?.pickerInput?(self, titleForRow: row) {
-            // try to get title from delegate
+        if let delegateTitle = self.delegate?.pickerInput?(self, titleForRow: row, forComponent: component) {
             return delegateTitle
-        }
-        // try to get default title
-        if let data = self.data {
-            return data[row]
         }
         return nil
     }
-    internal func pickerInputRowHeight(_ controller: PickerInputViewController) -> CGFloat?
+    
+    func pickerInputRowHeight(_ controller: MonthYearPickerInputViewController) -> CGFloat?
     {
-        /*
-         print("[\(type(of: self)) \(#function)]")
-         */
         if let rowHeightForComponent = self.delegate?.pickerInputRowHeight?(self) {
             return rowHeightForComponent
         }
@@ -321,7 +281,7 @@ import UIKit
 }
 
 // MARK: - FirstResponderControlDelegate
-extension DesignablePicker: FirstResponderControlDelegate
+extension DesignableMonthYearPicker: FirstResponderControlDelegate
 {
     func firstResponderControlShouldBeginEditing(_ control: FirstResponderControl) -> Bool
     {
@@ -333,17 +293,11 @@ extension DesignablePicker: FirstResponderControlDelegate
     
     func firstResponderControlDidBeginEditing(_ control: FirstResponderControl)
     {
-        /*
-         print ("[\(type(of: self)) \(#function)]")
-         */
         self.state = .active
     }
     
     func firstResponderControlDidEndEditing(_ control: FirstResponderControl)
     {
-        /*
-         print ("[\(type(of: self)) \(#function)]")
-         */
         self.state = .normal
     }
 }

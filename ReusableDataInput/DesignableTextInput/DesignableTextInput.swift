@@ -138,14 +138,6 @@
         super.setupFramesOnce()
     }
     
-    // TODO: ???
-    override func tapGestureAction(sender: UITapGestureRecognizer)
-    {
-        /*
-         print("[\(type(of: self)) \(#function)]")
-         */
-    }
-    
     internal override func setupViewsOnLoad(withDataView dataView: UIView, andResponder responder: UIView)
     {
         super.setupViewsOnLoad(withDataView: dataView, andResponder: responder)

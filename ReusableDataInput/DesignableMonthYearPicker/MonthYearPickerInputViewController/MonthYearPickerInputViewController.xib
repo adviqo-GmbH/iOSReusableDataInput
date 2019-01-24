@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MonthYearPickerInputViewController" customModule="DesignableDataInputDemoObjC" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="Hnd-9N-tHO" id="K3J-px-jC4"/>
+                <outlet property="dividerView" destination="M6W-d0-E6b" id="QxA-Rs-nkc"/>
+                <outlet property="doneButton" destination="Lio-NU-R5S" id="liz-9j-6aW"/>
+                <outlet property="picker" destination="TOT-En-soy" id="6Q9-yY-we0"/>
+                <outlet property="toolbar" destination="Ib5-ay-fdp" id="Ng6-di-ZTh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ib5-ay-fdp" userLabel="toolbar">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <items>
+                <barButtonItem title="Cancel" id="Hnd-9N-tHO" userLabel="cancelButton">
+                    <connections>
+                        <action selector="cancelAction:" destination="-1" id="7tM-Jd-4TX"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="2nI-VL-OoK"/>
+                <barButtonItem title="Done" id="Lio-NU-R5S" userLabel="doneButton">
+                    <connections>
+                        <action selector="doneAction:" destination="-1" id="9QK-h5-BUE"/>
+                    </connections>
+                </barButtonItem>
+            </items>
+            <point key="canvasLocation" x="42" y="257"/>
+        </toolbar>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6W-d0-E6b" userLabel="dividerView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="RUs-F9-3br"/>
+                    </constraints>
+                </view>
+                <pickerView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOT-En-soy" userLabel="picker">
+                    <rect key="frame" x="0.0" y="1" width="375" height="229"/>
+                </pickerView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="TOT-En-soy" secondAttribute="bottom" id="CrW-d1-ChS"/>
+                <constraint firstItem="M6W-d0-E6b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OFZ-kv-7VL"/>
+                <constraint firstItem="M6W-d0-E6b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QR2-Tv-2OC"/>
+                <constraint firstItem="TOT-En-soy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SQi-yG-9jm"/>
+                <constraint firstAttribute="trailing" secondItem="TOT-En-soy" secondAttribute="trailing" id="Xpe-Q3-anD"/>
+                <constraint firstItem="TOT-En-soy" firstAttribute="top" secondItem="M6W-d0-E6b" secondAttribute="bottom" id="aZB-LB-Nsb"/>
+                <constraint firstAttribute="trailing" secondItem="M6W-d0-E6b" secondAttribute="trailing" id="qQI-nV-gCV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

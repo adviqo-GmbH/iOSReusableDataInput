@@ -34,6 +34,14 @@
 		0958C79A21F7275B00D864C7 /* PickerInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C79921F7275B00D864C7 /* PickerInputDelegate.swift */; };
 		0958C79C21F7364400D864C7 /* DatePickerInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C79B21F7364400D864C7 /* DatePickerInputDelegate.swift */; };
 		0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0959848521F0ECB600A9AA4C /* SDKUtility.swift */; };
+		0969A7FB21F8BE1A00845CBD /* DesignableMaskedTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A7F921F8BE1A00845CBD /* DesignableMaskedTextInput.swift */; };
+		0969A7FC21F8BE1A00845CBD /* DesignableMaskedTextInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0969A7FA21F8BE1A00845CBD /* DesignableMaskedTextInput.xib */; };
+		0969A7FE21F8BE9D00845CBD /* MaskedTextInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A7FD21F8BE9D00845CBD /* MaskedTextInputDelegate.swift */; };
+		0969A80721F8C88B00845CBD /* DesignableMonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A80221F8C88B00845CBD /* DesignableMonthYearPicker.swift */; };
+		0969A80821F8C88B00845CBD /* DesignableMonthYearPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0969A80321F8C88B00845CBD /* DesignableMonthYearPicker.xib */; };
+		0969A80921F8C88B00845CBD /* MonthYearPickerInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A80521F8C88B00845CBD /* MonthYearPickerInputViewController.swift */; };
+		0969A80A21F8C88B00845CBD /* MonthYearPickerInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0969A80621F8C88B00845CBD /* MonthYearPickerInputViewController.xib */; };
+		0969A80C21F8C8AC00845CBD /* MonthYearPickerInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A80B21F8C8AC00845CBD /* MonthYearPickerInputDelegate.swift */; };
 		8DCC168D55532C3B23532C60 /* Pods_ReusableDataInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61F57427B22FC361A92D5F5 /* Pods_ReusableDataInput.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +75,14 @@
 		0958C79921F7275B00D864C7 /* PickerInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerInputDelegate.swift; sourceTree = "<group>"; };
 		0958C79B21F7364400D864C7 /* DatePickerInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerInputDelegate.swift; sourceTree = "<group>"; };
 		0959848521F0ECB600A9AA4C /* SDKUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKUtility.swift; sourceTree = "<group>"; };
+		0969A7F921F8BE1A00845CBD /* DesignableMaskedTextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableMaskedTextInput.swift; sourceTree = "<group>"; };
+		0969A7FA21F8BE1A00845CBD /* DesignableMaskedTextInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignableMaskedTextInput.xib; sourceTree = "<group>"; };
+		0969A7FD21F8BE9D00845CBD /* MaskedTextInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedTextInputDelegate.swift; sourceTree = "<group>"; };
+		0969A80221F8C88B00845CBD /* DesignableMonthYearPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableMonthYearPicker.swift; sourceTree = "<group>"; };
+		0969A80321F8C88B00845CBD /* DesignableMonthYearPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignableMonthYearPicker.xib; sourceTree = "<group>"; };
+		0969A80521F8C88B00845CBD /* MonthYearPickerInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerInputViewController.swift; sourceTree = "<group>"; };
+		0969A80621F8C88B00845CBD /* MonthYearPickerInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthYearPickerInputViewController.xib; sourceTree = "<group>"; };
+		0969A80B21F8C8AC00845CBD /* MonthYearPickerInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerInputDelegate.swift; sourceTree = "<group>"; };
 		216F4E7F43CAEBE641816569 /* Pods-ReusableDataInput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.debug.xcconfig"; sourceTree = "<group>"; };
 		22E219705F9043E601DA0821 /* Pods-ReusableDataInput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.release.xcconfig"; sourceTree = "<group>"; };
 		F61F57427B22FC361A92D5F5 /* Pods_ReusableDataInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReusableDataInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +133,8 @@
 				0958C78B21F726EF00D864C7 /* DesignablePicker */,
 				0958C78521F726EF00D864C7 /* DesignableDatePicker */,
 				09436E2021F2110E00AD010A /* DesignableTextInput */,
+				0969A7F821F8BDEA00845CBD /* DesignableMaskedTextInput */,
+				0969A80121F8C85600845CBD /* DesignableMonthYearPicker */,
 			);
 			path = ReusableDataInput;
 			sourceTree = "<group>";
@@ -183,6 +201,36 @@
 				0958C78E21F726EF00D864C7 /* PickerInputViewController.swift */,
 			);
 			path = PickerInputViewController;
+			sourceTree = "<group>";
+		};
+		0969A7F821F8BDEA00845CBD /* DesignableMaskedTextInput */ = {
+			isa = PBXGroup;
+			children = (
+				0969A7FD21F8BE9D00845CBD /* MaskedTextInputDelegate.swift */,
+				0969A7F921F8BE1A00845CBD /* DesignableMaskedTextInput.swift */,
+				0969A7FA21F8BE1A00845CBD /* DesignableMaskedTextInput.xib */,
+			);
+			path = DesignableMaskedTextInput;
+			sourceTree = "<group>";
+		};
+		0969A80121F8C85600845CBD /* DesignableMonthYearPicker */ = {
+			isa = PBXGroup;
+			children = (
+				0969A80B21F8C8AC00845CBD /* MonthYearPickerInputDelegate.swift */,
+				0969A80221F8C88B00845CBD /* DesignableMonthYearPicker.swift */,
+				0969A80321F8C88B00845CBD /* DesignableMonthYearPicker.xib */,
+				0969A80421F8C88B00845CBD /* MonthYearPickerInputViewController */,
+			);
+			path = DesignableMonthYearPicker;
+			sourceTree = "<group>";
+		};
+		0969A80421F8C88B00845CBD /* MonthYearPickerInputViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0969A80521F8C88B00845CBD /* MonthYearPickerInputViewController.swift */,
+				0969A80621F8C88B00845CBD /* MonthYearPickerInputViewController.xib */,
+			);
+			path = MonthYearPickerInputViewController;
 			sourceTree = "<group>";
 		};
 		2C05B9839D5F73D8CC0AF788 /* Frameworks */ = {
@@ -275,7 +323,10 @@
 				09436E2421F2117B00AD010A /* DesignableTextInput.xib in Resources */,
 				0958C79121F726EF00D864C7 /* DesignableDatePicker.xib in Resources */,
 				0958C79221F726EF00D864C7 /* DatePickerInputViewController.xib in Resources */,
+				0969A80A21F8C88B00845CBD /* MonthYearPickerInputViewController.xib in Resources */,
 				0958C79721F726EF00D864C7 /* DesignablePicker.xib in Resources */,
+				0969A7FC21F8BE1A00845CBD /* DesignableMaskedTextInput.xib in Resources */,
+				0969A80821F8C88B00845CBD /* DesignableMonthYearPicker.xib in Resources */,
 				0958C79521F726EF00D864C7 /* PickerInputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,10 +365,12 @@
 				0958C79321F726EF00D864C7 /* DatePickerInputViewController.swift in Sources */,
 				093F813521F0C840000D0525 /* FirstResponderControl.swift in Sources */,
 				093F813D21F0CD2A000D0525 /* InputViewValidator.swift in Sources */,
+				0969A7FB21F8BE1A00845CBD /* DesignableMaskedTextInput.swift in Sources */,
 				0958C79C21F7364400D864C7 /* DatePickerInputDelegate.swift in Sources */,
 				0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */,
 				0958C79621F726EF00D864C7 /* PickerInputViewController.swift in Sources */,
 				09436E2321F2117B00AD010A /* DesignableTextInput.swift in Sources */,
+				0969A80C21F8C8AC00845CBD /* MonthYearPickerInputDelegate.swift in Sources */,
 				093F812B21F0AD47000D0525 /* InputParametersProtocol.swift in Sources */,
 				093F813321F0BFE5000D0525 /* Notification.Name+Extension.swift in Sources */,
 				093F813921F0CC5E000D0525 /* BaseInputView.swift in Sources */,
@@ -328,7 +381,10 @@
 				093F813B21F0CCB8000D0525 /* InputView.swift in Sources */,
 				093F813721F0CBB5000D0525 /* InputViewValidatable.swift in Sources */,
 				0958C79421F726EF00D864C7 /* DesignableDatePicker.swift in Sources */,
+				0969A80721F8C88B00845CBD /* DesignableMonthYearPicker.swift in Sources */,
+				0969A80921F8C88B00845CBD /* MonthYearPickerInputViewController.swift in Sources */,
 				093F812F21F0AE27000D0525 /* InputViewProtocol.swift in Sources */,
+				0969A7FE21F8BE9D00845CBD /* MaskedTextInputDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

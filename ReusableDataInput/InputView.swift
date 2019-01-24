@@ -487,15 +487,13 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
     
     fileprivate var rightImage: UIImage? {
         set {
-            guard let newImage = newValue else {
-                return
-            }
+            guard let newImage = newValue else { return }
+            
             self.rightImageView.image = newImage
             self.rightImageView.frame = self.rightImageViewFrame(withImage: newImage)
             self.dataView.frame = self.dataViewFrame(forMode: self.mode)
             self.titleLabel.frame = self.titleLabelFrame(forMode: self.mode)
             self.rightButton.frame = rightButtonFrame()
-            
         }
         get {
             return self.rightImageView.image
@@ -733,6 +731,21 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
         afterAnimationClosure()
     }
     
+    private var inputViewDidLayoutSubviewsObservation: NotificationToken? = nil
+    fileprivate func setupNotifications()
+    {
+        let tapGesture = UITapGestureRecognizer(target: self, action:nil)
+        tapGesture.cancelsTouchesInView = false
+        self.userInputView.addGestureRecognizer(tapGesture)
+        
+        self.inputViewDidLayoutSubviewsObservation = NotificationCenter.default.observe(name: .inputViewDidLayoutSubviews, object: self, queue: nil) { [unowned self] notification in
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.setupFramesOnceVar()
+            }
+        }
+    }
+    
+    // MARK: - Layout calculations
     fileprivate func messageViewHeight(withText perhapsText: String?, font perhapsFont: UIFont?) -> CGFloat
     {
         guard
@@ -752,29 +765,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
         let height = label.frame.height + 2 * InputViewConstants.standardOffset
         return height
     }
-    
-    // TODO: ???
-    @objc internal func tapGestureAction(sender: UITapGestureRecognizer)
-    {
-        /*
-         print("[\(type(of: self)) \(#function)]")
-         */
-    }
-    
-    private var inputViewDidLayoutSubviewsObservation: NotificationToken? = nil
-    fileprivate func setupNotifications()
-    {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(InputView.tapGestureAction(sender:)))
-        tapGesture.cancelsTouchesInView = false
-        self.userInputView.addGestureRecognizer(tapGesture)
-        
-        self.inputViewDidLayoutSubviewsObservation = NotificationCenter.default.observe(name: .inputViewDidLayoutSubviews, object: self, queue: nil) { [unowned self] notification in
-            DispatchQueue.main.asyncAfter(deadline: .now()) {
-                self.setupFramesOnceVar()
-            }
-        }
-    }
-    
+
     fileprivate var textWidth: CGFloat {
         var rightImageWidht = self.rightImageViewFrame(withImage: self.rightImage).size.width
         if rightImageWidht > 0 {
@@ -867,57 +858,55 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
     
     internal func rightImageViewFrame(withImage perhapsImage: UIImage?) -> CGRect
     {
-        let imageFrame: CGRect
-        if let image = perhapsImage {
-            imageFrame = CGRect(
-                x: self.userInputView.bounds.width - InputViewConstants.rightContentOffset - image.size.width,
-                y: (self.userInputView.bounds.height - image.size.height) / 2,
-                width: image.size.width,
-                height: image.size.height
-            )
-        } else {
-            imageFrame = CGRect.zero
+        guard let image = perhapsImage else {
+            return CGRect.zero
         }
+        let imageFrame = CGRect(
+            x: self.userInputView.bounds.width - InputViewConstants.rightContentOffset - image.size.width,
+            y: (self.userInputView.bounds.height - image.size.height) / 2,
+            width: image.size.width,
+            height: image.size.height
+        )
         return imageFrame
     }
     
     fileprivate func leftImageSize(withImage perhapsImage: UIImage?, andConstrainedHeight height: CGFloat = CGFloat.greatestFiniteMagnitude) -> CGSize
     {
-        if let image = perhapsImage {
-            let aspectRatio = image.size.width / image.size.height
-            let imageHeight = min(image.size.height, self.userInputView.bounds.height - 2 * InputViewConstants.leftImageVerticalOffset, height)
-            let imageWidth = imageHeight * aspectRatio
-            let imageSize = CGSize(width: imageWidth, height: imageHeight)
-            return imageSize
-        } else {
+        guard let image = perhapsImage else {
             return CGSize.zero
         }
+        let aspectRatio = image.size.width / image.size.height
+        let imageHeight = min(image.size.height, self.userInputView.bounds.height - 2 * InputViewConstants.leftImageVerticalOffset, height)
+        let imageWidth = imageHeight * aspectRatio
+        let imageSize = CGSize(width: imageWidth, height: imageHeight)
+        return imageSize
     }
     
     fileprivate func leftImageViewFrame(withImage perhapsImage: UIImage?, andMode mode: InputViewMode) -> CGRect
     {
+        guard let image = perhapsImage else {
+            return CGRect.zero
+        }
+        
+        let titleHeight = self.sampleString.height(withConstrainedWidth: self.textWidth, font: self.titleFont) + 2
+        let imageSize = self.leftImageSize(withImage: image, andConstrainedHeight: self.maxLeftImageHeight)
         let imageFrame: CGRect
-        if let image = perhapsImage {
-            let titleHeight = self.sampleString.height(withConstrainedWidth: self.textWidth, font: self.titleFont) + 2
-            let imageSize = self.leftImageSize(withImage: image, andConstrainedHeight: self.maxLeftImageHeight)
-            switch mode {
-            case .placeholder:
-                imageFrame = CGRect(
-                    x: InputViewConstants.leftContentOffset,
-                    y: (self.userInputView.bounds.height - imageSize.height) / 2,
-                    width: imageSize.width,
-                    height: imageSize.height
-                )
-            case .title:
-                imageFrame = CGRect(
-                    x: InputViewConstants.leftContentOffset,
-                    y: titleHeight + InputViewConstants.standardOffset + 2,
-                    width: imageSize.width,
-                    height: imageSize.height
-                )
-            }
-        } else {
-            imageFrame = CGRect.zero
+        
+        switch mode {
+        case .placeholder:
+            imageFrame = CGRect(
+                x: InputViewConstants.leftContentOffset,
+                y: (self.userInputView.bounds.height - imageSize.height) / 2,
+                width: imageSize.width,
+                height: imageSize.height
+            )
+        case .title:
+            imageFrame = CGRect(
+                x: InputViewConstants.leftContentOffset,
+                y: titleHeight + InputViewConstants.standardOffset + 2,
+                width: imageSize.width,
+                height: imageSize.height
+            )
         }
         return imageFrame
     }
