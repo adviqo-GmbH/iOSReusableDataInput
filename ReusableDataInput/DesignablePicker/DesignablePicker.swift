@@ -95,7 +95,7 @@ import UIKit
             guard
                 let data = self.data,
                 data.count > 0,
-                let index = data.index(of: valueString)
+                let index = data.firstIndex(of: valueString)
             else { return }
             
             self.selectedIndex = data.distance(from: data.startIndex, to: index)
@@ -189,7 +189,7 @@ import UIKit
                 "standardOffset"        : InputViewConstants.standardOffset,
                 "rightContentOffset"    : InputViewConstants.rightContentOffset
             ]
-            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-leftContentOffset-[titleLabel]-standardOffset-[rightImageView]-rightContentOffset-|", options: NSLayoutFormatOptions.init(rawValue: 0), metrics: metrics, views: views))
+            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-leftContentOffset-[titleLabel]-standardOffset-[rightImageView]-rightContentOffset-|", options: NSLayoutConstraint.FormatOptions.init(rawValue: 0), metrics: metrics, views: views))
             NSLayoutConstraint.activate([NSLayoutConstraint(item: self.rightImageView, attribute: .centerY, relatedBy: .equal, toItem: self.userInputView, attribute: .centerY, multiplier: 1, constant: 0)])
             NSLayoutConstraint.activate([NSLayoutConstraint(item: self.rightImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 24)])
             NSLayoutConstraint.activate([NSLayoutConstraint(item: self.rightImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 24)])

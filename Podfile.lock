@@ -1,6 +1,6 @@
 PODS:
-  - InputMask (4.0.2)
-  - iOSReusableExtensions (1.0.4):
+  - InputMask (4.1.1)
+  - iOSReusableExtensions (1.0.7):
     - InputMask (~> 4.0)
 
 DEPENDENCIES:
@@ -14,9 +14,9 @@ SPEC REPOS:
     - InputMask
 
 SPEC CHECKSUMS:
-  InputMask: b9df7a44c044f59485b2d596661e6bd4334bddb4
-  iOSReusableExtensions: 8108846febfb9c5bb6d46b4a578e2b54cc0760f8
+  InputMask: 88c7c1432816333e884e647f8c2d69485ba525d1
+  iOSReusableExtensions: c6fe59c238795ad3d0c0472a20a6746bb60b64ca
 
 PODFILE CHECKSUM: 519814a4669cfbfdb9e154149c8ca5b905135075
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

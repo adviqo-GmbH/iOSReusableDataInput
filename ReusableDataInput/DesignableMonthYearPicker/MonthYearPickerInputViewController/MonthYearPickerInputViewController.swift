@@ -67,7 +67,7 @@ class MonthYearPickerInputViewController: UIViewController
             guard year != oldValue else {
                 return
             }
-            guard let indexOfYear = self.years.index(of: year) else {
+            guard let indexOfYear = self.years.firstIndex(of: year) else {
                 return
             }
             self.picker.selectRow(indexOfYear, inComponent: 1, animated: false)
