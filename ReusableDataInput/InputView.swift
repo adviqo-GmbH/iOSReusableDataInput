@@ -695,7 +695,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
             }
             afterAnimationClosure = {
                 self.dataView.frame = self.dataViewFrame(forMode: mode)
-                self.titleLabel.font = UIFont(name: self.titleFont.fontName, size: self.font.pointSize)
+                self.titleLabel.font = self.titleFont.withSize(self.font.pointSize)
             }
             break
         case .placeholder:
