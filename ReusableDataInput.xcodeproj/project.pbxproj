@@ -42,6 +42,9 @@
 		0969A80921F8C88B00845CBD /* MonthYearPickerInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A80521F8C88B00845CBD /* MonthYearPickerInputViewController.swift */; };
 		0969A80A21F8C88B00845CBD /* MonthYearPickerInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0969A80621F8C88B00845CBD /* MonthYearPickerInputViewController.xib */; };
 		0969A80C21F8C8AC00845CBD /* MonthYearPickerInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A80B21F8C8AC00845CBD /* MonthYearPickerInputDelegate.swift */; };
+		09C6DCAF237FFA9A00AC2C95 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C6DCAD237FFA9900AC2C95 /* DesignableTextView.swift */; };
+		09C6DCB0237FFA9A00AC2C95 /* DesignableTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C6DCAE237FFA9900AC2C95 /* DesignableTextView.xib */; };
+		09C6DCB42380090600AC2C95 /* TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C6DCB32380090600AC2C95 /* TextViewDelegate.swift */; };
 		55387EA84A9F2D241170CA1B /* Pods_ReusableDataInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C4BA31AE053C4C057F6934 /* Pods_ReusableDataInput.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +86,9 @@
 		0969A80521F8C88B00845CBD /* MonthYearPickerInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerInputViewController.swift; sourceTree = "<group>"; };
 		0969A80621F8C88B00845CBD /* MonthYearPickerInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthYearPickerInputViewController.xib; sourceTree = "<group>"; };
 		0969A80B21F8C8AC00845CBD /* MonthYearPickerInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerInputDelegate.swift; sourceTree = "<group>"; };
+		09C6DCAD237FFA9900AC2C95 /* DesignableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
+		09C6DCAE237FFA9900AC2C95 /* DesignableTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignableTextView.xib; sourceTree = "<group>"; };
+		09C6DCB32380090600AC2C95 /* TextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewDelegate.swift; sourceTree = "<group>"; };
 		0EBD4662FB6A89010ECD61FE /* Pods-ReusableDataInput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.release.xcconfig"; path = "Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.release.xcconfig"; sourceTree = "<group>"; };
 		41E641A52736CB7F6EC9D3C3 /* Pods-ReusableDataInput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.debug.xcconfig"; path = "Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.debug.xcconfig"; sourceTree = "<group>"; };
 		84C4BA31AE053C4C057F6934 /* Pods_ReusableDataInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReusableDataInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +150,7 @@
 				09436E2021F2110E00AD010A /* DesignableTextInput */,
 				0969A7F821F8BDEA00845CBD /* DesignableMaskedTextInput */,
 				0969A80121F8C85600845CBD /* DesignableMonthYearPicker */,
+				09C6DCAC237FFA6B00AC2C95 /* DesignableTextView */,
 			);
 			path = ReusableDataInput;
 			sourceTree = "<group>";
@@ -242,6 +249,16 @@
 			path = MonthYearPickerInputViewController;
 			sourceTree = "<group>";
 		};
+		09C6DCAC237FFA6B00AC2C95 /* DesignableTextView */ = {
+			isa = PBXGroup;
+			children = (
+				09C6DCB32380090600AC2C95 /* TextViewDelegate.swift */,
+				09C6DCAD237FFA9900AC2C95 /* DesignableTextView.swift */,
+				09C6DCAE237FFA9900AC2C95 /* DesignableTextView.xib */,
+			);
+			path = DesignableTextView;
+			sourceTree = "<group>";
+		};
 		D2A06831740492A21D628478 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +321,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 093F80F721F09E15000D0525;
 			productRefGroup = 093F810221F09E15000D0525 /* Products */;
@@ -322,6 +340,7 @@
 			files = (
 				09436E2421F2117B00AD010A /* DesignableTextInput.xib in Resources */,
 				0958C79121F726EF00D864C7 /* DesignableDatePicker.xib in Resources */,
+				09C6DCB0237FFA9A00AC2C95 /* DesignableTextView.xib in Resources */,
 				0958C79221F726EF00D864C7 /* DatePickerInputViewController.xib in Resources */,
 				0969A80A21F8C88B00845CBD /* MonthYearPickerInputViewController.xib in Resources */,
 				0958C79721F726EF00D864C7 /* DesignablePicker.xib in Resources */,
@@ -366,10 +385,12 @@
 				093F813121F0AEB0000D0525 /* StatefulInput.swift in Sources */,
 				0958C79A21F7275B00D864C7 /* PickerInputDelegate.swift in Sources */,
 				0958C79821F726EF00D864C7 /* DesignablePicker.swift in Sources */,
+				09C6DCAF237FFA9A00AC2C95 /* DesignableTextView.swift in Sources */,
 				0958C79321F726EF00D864C7 /* DatePickerInputViewController.swift in Sources */,
 				093F813521F0C840000D0525 /* FirstResponderControl.swift in Sources */,
 				093F813D21F0CD2A000D0525 /* InputViewValidator.swift in Sources */,
 				0969A7FB21F8BE1A00845CBD /* DesignableMaskedTextInput.swift in Sources */,
+				09C6DCB42380090600AC2C95 /* TextViewDelegate.swift in Sources */,
 				0958C79C21F7364400D864C7 /* DatePickerInputDelegate.swift in Sources */,
 				0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */,
 				0958C79621F726EF00D864C7 /* PickerInputViewController.swift in Sources */,
@@ -538,7 +559,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adviqo.ReusableDataInput;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -567,7 +588,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adviqo.ReusableDataInput;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

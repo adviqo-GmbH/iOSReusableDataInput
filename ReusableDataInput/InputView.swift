@@ -436,7 +436,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
     
     fileprivate var _mode: InputViewMode = .placeholder
     fileprivate let sampleString = "Gg"
-    fileprivate let defaultMessageHeight: CGFloat = 50
+    internal let defaultMessageHeight: CGFloat = 50
     fileprivate let maxLeftImageHeight: CGFloat = 20
     
     // TODO: ???
@@ -553,14 +553,14 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
             heightConstraintRelation = .equal
         }
         
-        self._heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: heightConstraintRelation, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: self.defaultMessageHeight)
+        self._heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: heightConstraintRelation, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: self.userInputViewHeight())
         self._heightConstraint.identifier = "InputViewHeightConstraint"
         self._heightConstraint.isActive = true
     }
     
     internal func apply(state: InputViewState)
     {
-        self._heightConstraint.constant = self.defaultMessageHeight
+        self._heightConstraint.constant = self.userInputViewHeight()
         switch state {
         case .normal:
             self.borderWidth = self.normalBorder
@@ -623,7 +623,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
                 self.errorView.isHidden = false
                 self.errorLabel.textColor = self.errorMsgColor
                 let messageHeight = self.messageViewHeight(withText: self.errorMessage, font: self.messageFont)
-                self._heightConstraint.constant = self.defaultMessageHeight + messageHeight
+                self._heightConstraint.constant = self.userInputViewHeight() + messageHeight
             } else {
                 self.errorView.isHidden = true
             }
@@ -654,7 +654,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
                 self.infoView.isHidden = false
                 self.infoLabel.textColor = self.infoMsgColor
                 let messageHeight = self.messageViewHeight(withText: self.infoMessage, font: self.messageFont)
-                self._heightConstraint.constant = self.defaultMessageHeight + messageHeight
+                self._heightConstraint.constant = self.userInputViewHeight() + messageHeight
             } else {
                 self.infoView.isHidden = true
             }
@@ -765,6 +765,11 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
         let height = label.frame.height + 2 * InputViewConstants.standardOffset
         return height
     }
+    
+    internal func userInputViewHeight() -> CGFloat
+    {
+        return InputViewConstants.defaultUserInputViewHeight
+    }
 
     fileprivate var textWidth: CGFloat {
         var rightImageWidht = self.rightImageViewFrame(withImage: self.rightImage).size.width
@@ -824,7 +829,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
         return rightButtonFrame
     }
     
-    fileprivate func dataViewFrame(forMode mode: InputViewMode) -> CGRect
+    internal func dataViewFrame(forMode mode: InputViewMode) -> CGRect
     {
         let leftImageWidth = self.leftImageSize(withImage: self.leftImage, andConstrainedHeight: self.maxLeftImageHeight).width
         // leftOffset

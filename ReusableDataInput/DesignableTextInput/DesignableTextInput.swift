@@ -146,10 +146,7 @@
             guard
                 let textField = notification.object as? UITextField,
                 textField == self.textField
-            else
-            {
-                return
-            }
+            else { return }
             self.delegate?.textInputDidChange?(self)
         }
         

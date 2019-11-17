@@ -16,11 +16,13 @@ import UIKit
             return self.pickerInputViewController.cancelButton
         }
     }
+    
     @objc public var doneButton: UIBarButtonItem! {
         get {
             return self.pickerInputViewController.doneButton
         }
     }
+    
     @objc public var pickerTextColor: UIColor? {
         get {
             return self.pickerInputViewController.textColor
@@ -42,6 +44,7 @@ import UIKit
             self.pickerInputViewController.tintColor = newValue
         }
     }
+    
     @objc @IBInspectable public var toolbarBackgroundColor: UIColor? {
         get {
             return self.pickerInputViewController.toolbar.backgroundColor
@@ -50,6 +53,7 @@ import UIKit
             self.pickerInputViewController.toolbar.backgroundColor = newValue
         }
     }
+    
     @objc public var pickerFont: UIFont? {
         get {
             return self.pickerInputViewController.font
@@ -60,12 +64,14 @@ import UIKit
     }
     
     // MARK: - Getters & setters for superclasses
+    
     // didSet for font
     override func set(font: UIFont)
     {
         super.set(font: font)
         self.textLabel.font = font
     }
+    
     // didSet for textColor
     internal override func set(textColor: UIColor?)
     {
@@ -111,6 +117,7 @@ import UIKit
             }
         }
     }
+    
     @objc public var data: [String]? {
         get {
             return self.pickerInputViewController.data
@@ -119,6 +126,7 @@ import UIKit
             self.pickerInputViewController.data = newValue
         }
     }
+    
     @objc public var selectedIndex: Int = NSNotFound {
         didSet {
             guard selectedIndex != NSNotFound else {
@@ -134,6 +142,7 @@ import UIKit
         super.init(frame: frame)
         self.setupViewsOnLoad(withDataView: self.textLabel, andResponder: self.responderView)
     }
+    
     @objc public required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
@@ -145,6 +154,7 @@ import UIKit
     @IBOutlet internal weak var textLabel: UILabel!
     @IBOutlet internal weak var responderView: FirstResponderControl!
     internal var pickerInputViewController: PickerInputViewController!
+    
     internal var text:String? {
         set(newText) {
             self.set(text: newText, animated: false)
@@ -153,6 +163,7 @@ import UIKit
             return self.textLabel.text
         }
     }
+    
     internal func set(text perhapsText:String?, animated:Bool)
     {
         guard let text = perhapsText else {
