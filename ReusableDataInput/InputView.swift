@@ -500,20 +500,19 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput
         }
     }
     
-    internal func loadViewFromXib() -> UIView
-    {
-        let className = String.className(type(of: self))
+    internal lazy var bundle: Bundle = {
         let podBundle = Bundle(for: type(of: self))
-        
         guard let bundleURL = podBundle.url(forResource: SDKUtility.frameworkName(), withExtension: "bundle") else {
             fatalError("Could not find bundle URL for \(SDKUtility.frameworkName())")
         }
-        
         guard let bundle = Bundle(url: bundleURL) else {
             fatalError("Could not load the bundle for \(SDKUtility.frameworkName())")
         }
-        
-        let nib = UINib(nibName: className, bundle: bundle)
+        return bundle
+    }()
+    internal func loadViewFromXib() -> UIView {
+        let className = String.className(type(of: self))
+        let nib = UINib(nibName: className, bundle: self.bundle)
         let loadedView = nib.instantiate(withOwner: self, options: nil).first as! UIView
         return loadedView
     }

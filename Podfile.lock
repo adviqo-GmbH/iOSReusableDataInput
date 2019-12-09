@@ -1,9 +1,11 @@
 PODS:
+  - CountryKit (2.0.0)
   - InputMask (4.3.0)
   - iOSReusableExtensions (1.0.10):
     - InputMask (~> 4.0)
 
 DEPENDENCIES:
+  - CountryKit
   - InputMask (~> 4.0)
   - iOSReusableExtensions
 
@@ -11,12 +13,14 @@ SPEC REPOS:
   https://github.com/adviqo-GmbH/iOSPodSpecs.git:
     - iOSReusableExtensions
   https://github.com/CocoaPods/Specs.git:
+    - CountryKit
     - InputMask
 
 SPEC CHECKSUMS:
+  CountryKit: 8886e12d87f11907c7c93e45229658b654e00df0
   InputMask: 3674235e12cc52e769b01b2f35d6bbc94cd059c7
   iOSReusableExtensions: 253770bf979b627ccb08bcf2be8f794e980c9a9b
 
-PODFILE CHECKSUM: 519814a4669cfbfdb9e154149c8ca5b905135075
+PODFILE CHECKSUM: 4fb8e7b61f6c731d4b7665aed1b08cdb08653f5a
 
 COCOAPODS: 1.8.3

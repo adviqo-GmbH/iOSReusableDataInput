@@ -220,16 +220,8 @@ import UIKit
     {
         super.setupViewsOnLoad(withDataView: dataView, andResponder: responder)
         self.responderView.delegate = self
-        
         let className = String.className(PickerInputViewController.classForCoder())
-        let podBundle = Bundle(for: type(of: self))
-        guard let bundleURL = podBundle.url(forResource: SDKUtility.frameworkName(), withExtension: "bundle") else {
-            fatalError("Could not find bundle URL for \(SDKUtility.frameworkName())")
-        }
-        guard let bundle = Bundle(url: bundleURL) else {
-            fatalError("Could not load the bundle for \(SDKUtility.frameworkName())")
-        }
-        self.pickerInputViewController = PickerInputViewController(nibName: className, bundle: bundle)
+        self.pickerInputViewController = PickerInputViewController(nibName: className, bundle: self.bundle)
         
         if
             let inputView = self.pickerInputViewController.view,

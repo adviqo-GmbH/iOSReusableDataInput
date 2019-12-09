@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CountryPickerView" customModule="DesignableDataInputDemoObjC" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eaa-i5-1Rh">
+                    <rect key="frame" x="48" y="28" width="279" height="24"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wSM-o6-G5x" userLabel="iconImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="8Z4-Pe-tCA"/>
+                                <constraint firstAttribute="width" constant="24" id="aEF-2Q-d9x"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLO-YD-yzp" userLabel="titleLabel">
+                            <rect key="frame" x="32" y="0.0" width="247" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="kLO-YD-yzp" secondAttribute="trailing" id="NpZ-Cp-LPg"/>
+                        <constraint firstItem="kLO-YD-yzp" firstAttribute="leading" secondItem="wSM-o6-G5x" secondAttribute="trailing" constant="8" id="TR4-yP-Vkb"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="eaa-i5-1Rh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6Tc-Ax-RPT"/>
+                <constraint firstAttribute="trailing" secondItem="eaa-i5-1Rh" secondAttribute="trailing" constant="48" id="DAs-4u-MQE"/>
+                <constraint firstItem="eaa-i5-1Rh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="48" id="FLA-jA-bdN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconImageView" destination="wSM-o6-G5x" id="5lg-LB-RAE"/>
+                <outlet property="titleLabel" destination="kLO-YD-yzp" id="B9J-yK-SQn"/>
+            </connections>
+        </view>
+    </objects>
+</document>

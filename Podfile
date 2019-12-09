@@ -12,5 +12,6 @@ target 'ReusableDataInput' do
   # Pods for ReusableDataInput
   pod 'InputMask', '~> 4.0'
   pod 'iOSReusableExtensions'
+  pod 'CountryKit'
 
 end
