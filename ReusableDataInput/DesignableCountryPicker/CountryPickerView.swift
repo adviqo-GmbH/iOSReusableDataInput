@@ -8,8 +8,7 @@
 
 import UIKit
 
-class CountryPickerView: UIView
-{
+class CountryPickerView: UIView {
     @IBOutlet internal weak var iconImageView: UIImageView!
     @IBOutlet internal weak var titleLabel: UILabel!
 }

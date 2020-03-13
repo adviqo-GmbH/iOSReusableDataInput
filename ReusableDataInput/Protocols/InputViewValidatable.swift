@@ -8,7 +8,6 @@
 
 import Foundation
 
-public protocol InputViewValidatable
-{
+public protocol InputViewValidatable {
     func validate() -> Bool
 }

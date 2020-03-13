@@ -8,21 +8,10 @@
 
 import UIKit
 
-@objc @IBDesignable public class DesignablePicker: InputView, PickerInputViewControllerDelegate
-{
+@IBDesignable public class DesignablePicker: InputView, PickerInputViewControllerDelegate {
     // MARK: - Controls
-    @objc public var cancelButton: UIBarButtonItem! {
-        get {
-            return self.pickerInputViewController.cancelButton
-        }
-    }
-    
-    @objc public var doneButton: UIBarButtonItem! {
-        get {
-            return self.pickerInputViewController.doneButton
-        }
-    }
-    
+    @objc public var cancelButton: UIBarButtonItem! { pickerInputViewController.cancelButton }
+    @objc public var doneButton: UIBarButtonItem! { pickerInputViewController.doneButton }
     @objc public var pickerTextColor: UIColor? {
         get {
             return self.pickerInputViewController.textColor
@@ -31,12 +20,10 @@ import UIKit
             self.pickerInputViewController.textColor = newValue
         }
     }
-    
     // MARK: - Public properties
     @objc public weak var delegate: PickerInputDelegate?
-    
     // MARK: picker
-    @objc @IBInspectable public var pickerColor: UIColor? {
+    @IBInspectable public var pickerColor: UIColor? {
         get {
             return self.pickerInputViewController.tintColor
         }
@@ -44,8 +31,7 @@ import UIKit
             self.pickerInputViewController.tintColor = newValue
         }
     }
-    
-    @objc @IBInspectable public var toolbarBackgroundColor: UIColor? {
+    @IBInspectable public var toolbarBackgroundColor: UIColor? {
         get {
             return self.pickerInputViewController.toolbar.backgroundColor
         }
@@ -53,7 +39,6 @@ import UIKit
             self.pickerInputViewController.toolbar.backgroundColor = newValue
         }
     }
-    
     @objc public var pickerFont: UIFont? {
         get {
             return self.pickerInputViewController.font
@@ -62,23 +47,17 @@ import UIKit
             self.pickerInputViewController.font = newValue
         }
     }
-    
     // MARK: - Getters & setters for superclasses
-    
     // didSet for font
-    override func set(font: UIFont)
-    {
+    override func set(font: UIFont) {
         super.set(font: font)
         self.textLabel.font = font
     }
-    
     // didSet for textColor
-    internal override func set(textColor: UIColor?)
-    {
+    internal override func set(textColor: UIColor?) {
         self.textLabel.textColor = textColor
         super.set(textColor: textColor)
     }
-    
     // MARK: - Data management
     @objc override public var value: String? {
         get {
@@ -86,30 +65,22 @@ import UIKit
         }
         set {
             self.state = .normal
-            
-            guard
-                let valueString = newValue,
-                valueString.count > 0
-            else
-            {
+            guard let valueString = newValue, !valueString.isEmpty else {
                 self.text = nil
                 self.leftImage = nil
                 self._value = nil
                 return
             }
-            
             guard
                 let data = self.data,
-                data.count > 0,
+                !data.isEmpty,
                 let index = data.firstIndex(of: valueString)
             else { return }
-            
             self.selectedIndex = data.distance(from: data.startIndex, to: index)
             self._value = valueString
-            
             if
                 let delegateTitle = self.delegate?.pickerInput?(self, titleForRow: self.selectedIndex),
-                delegateTitle.count > 0
+                !delegateTitle.isEmpty
             {
                 self.text = delegateTitle
             } else {
@@ -117,7 +88,6 @@ import UIKit
             }
         }
     }
-    
     @objc public var data: [String]? {
         get {
             return self.pickerInputViewController.data
@@ -126,7 +96,6 @@ import UIKit
             self.pickerInputViewController.data = newValue
         }
     }
-    
     @objc public var selectedIndex: Int = NSNotFound {
         didSet {
             guard selectedIndex != NSNotFound else {
@@ -135,27 +104,21 @@ import UIKit
             self.pickerInputViewController.selectedIndex = selectedIndex
         }
     }
-    
     // MARK: - Init
-    @objc public override init(frame: CGRect)
-    {
+    @objc public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViewsOnLoad(withDataView: self.textLabel, andResponder: self.responderView)
     }
-    
-    @objc public required init?(coder aDecoder: NSCoder)
-    {
+    @objc public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setupViewsOnLoad(withDataView: self.textLabel, andResponder: self.responderView)
     }
-    
     // MARK: - Private
     fileprivate var _value: String?
     @IBOutlet internal weak var textLabel: UILabel!
     @IBOutlet internal weak var responderView: FirstResponderControl!
     internal var pickerInputViewController: PickerInputViewController!
-    
-    internal var text:String? {
+    internal var text: String? {
         set(newText) {
             self.set(text: newText, animated: false)
         }
@@ -163,9 +126,7 @@ import UIKit
             return self.textLabel.text
         }
     }
-    
-    internal func set(text perhapsText:String?, animated:Bool)
-    {
+    internal func set(text perhapsText: String?, animated: Bool) {
         guard let text = perhapsText else {
             self.textLabel.text = nil
             self.state = .normal
@@ -178,29 +139,31 @@ import UIKit
         self.textLabel.text = text
         self.set(mode: .title, animated: animated)
     }
-    
-    internal override func xibSetup()
-    {
+    internal override func xibSetup() {
         super.xibSetup()
-        
         #if TARGET_INTERFACE_BUILDER
         // userInputView for Interface builder
         do {
             self.textLabel.removeFromSuperview()
             self.responderView.removeFromSuperview()
-            
             self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
             self.rightImageView.translatesAutoresizingMaskIntoConstraints = false
-            let views:[String:UIView] = [
-                "titleLabel"        : self.titleLabel,
-                "rightImageView"    : self.rightImageView
+            let views: [String: UIView] = [
+                "titleLabel": self.titleLabel,
+                "rightImageView": self.rightImageView
             ]
             let metrics = [
-                "leftContentOffset"     : InputViewConstants.leftContentOffset,
-                "standardOffset"        : InputViewConstants.standardOffset,
-                "rightContentOffset"    : InputViewConstants.rightContentOffset
+                "leftContentOffset": InputViewConstants.leftContentOffset,
+                "standardOffset": InputViewConstants.standardOffset,
+                "rightContentOffset": InputViewConstants.rightContentOffset
             ]
-            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-leftContentOffset-[titleLabel]-standardOffset-[rightImageView]-rightContentOffset-|", options: NSLayoutConstraint.FormatOptions.init(rawValue: 0), metrics: metrics, views: views))
+            NSLayoutConstraint.activate(
+                NSLayoutConstraint.constraints(
+                    withVisualFormat: "H:|-leftContentOffset-[titleLabel]-standardOffset-[rightImageView]-rightContentOffset-|",
+                    options: NSLayoutConstraint.FormatOptions.init(rawValue: 0),
+                    metrics: metrics,
+                    views: views)
+            )
             NSLayoutConstraint.activate([NSLayoutConstraint(item: self.rightImageView, attribute: .centerY, relatedBy: .equal, toItem: self.userInputView, attribute: .centerY, multiplier: 1, constant: 0)])
             NSLayoutConstraint.activate([NSLayoutConstraint(item: self.rightImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 24)])
             NSLayoutConstraint.activate([NSLayoutConstraint(item: self.rightImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 24)])
@@ -208,21 +171,16 @@ import UIKit
         }
         #endif
     }
-    
-    override func setupFramesOnce()
-    {
+    override func setupFramesOnce() {
         super.setupFramesOnce()
         // responderView
         self.responderView.frame = self.userInputView.bounds
     }
-    
-    internal override func setupViewsOnLoad(withDataView dataView: UIView, andResponder responder: UIView)
-    {
+    internal override func setupViewsOnLoad(withDataView dataView: UIView, andResponder responder: UIView) {
         super.setupViewsOnLoad(withDataView: dataView, andResponder: responder)
         self.responderView.delegate = self
         let className = String.className(PickerInputViewController.classForCoder())
         self.pickerInputViewController = PickerInputViewController(nibName: className, bundle: self.bundle)
-        
         if
             let inputView = self.pickerInputViewController.view,
             let inputAccessoryView = self.pickerInputViewController.toolbar
@@ -234,32 +192,23 @@ import UIKit
             self.responderView.inputAccessoryView = inputAccessoryView
             self.pickerInputViewController.delegate = self
         }
-        
         // Default falues
         #if TARGET_INTERFACE_BUILDER
-        
         self.pickerFont = UIFont.systemFont(ofSize: 14)
-        
         #endif
-        
         #if !TARGET_INTERFACE_BUILDER
-        
         self.textLabel.text = nil
-        
         #endif
     }
-    
     // MARK: - PickerInputViewControllerDelegate
-    internal func pickerInputViewControllerDidCancel(_ controller: PickerInputViewController)
-    {
+    internal func pickerInputViewControllerDidCancel(_ controller: PickerInputViewController) {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
         _ = self.responderView.resignFirstResponder()
         self.delegate?.pickerInputDidCancel?(self)
     }
-    internal func pickerInput(_ controller: PickerInputViewController, doneWithValue value: String, andIndex index:Int)
-    {
+    internal func pickerInput(_ controller: PickerInputViewController, doneWithValue value: String, andIndex index: Int) {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
@@ -273,15 +222,13 @@ import UIKit
         }
         self.delegate?.pickerInput(self, doneWithValue: value, andIndex: index)
     }
-    internal func pickerInput(_ controller: PickerInputViewController, changedWithValue value: String, andIndex index:Int)
-    {
+    internal func pickerInput(_ controller: PickerInputViewController, changedWithValue value: String, andIndex index: Int) {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
         self.delegate?.pickerInput?(self, changedWithValue: value, andIndex: index)
     }
-    internal func pickerInput(_ controller: PickerInputViewController, viewForRow row: Int, reusing view: UIView?) -> UIView?
-    {
+    internal func pickerInput(_ controller: PickerInputViewController, viewForRow row: Int, reusing view: UIView?) -> UIView? {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
@@ -296,8 +243,7 @@ import UIKit
         }
         return nil
     }
-    internal func pickerInput(_ controller: PickerInputViewController, titleForRow row: Int) -> String?
-    {
+    internal func pickerInput(_ controller: PickerInputViewController, titleForRow row: Int) -> String? {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
@@ -311,8 +257,7 @@ import UIKit
         }
         return nil
     }
-    internal func pickerInputRowHeight(_ controller: PickerInputViewController) -> CGFloat?
-    {
+    internal func pickerInputRowHeight(_ controller: PickerInputViewController) -> CGFloat? {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
@@ -324,26 +269,20 @@ import UIKit
 }
 
 // MARK: - FirstResponderControlDelegate
-extension DesignablePicker: FirstResponderControlDelegate
-{
-    func firstResponderControlShouldBeginEditing(_ control: FirstResponderControl) -> Bool
-    {
+extension DesignablePicker: FirstResponderControlDelegate {
+    func firstResponderControlShouldBeginEditing(_ control: FirstResponderControl) -> Bool {
         if let result = self.delegate?.pickerInputShouldBeginEditing?(self) {
             return result
         }
         return true
     }
-    
-    func firstResponderControlDidBeginEditing(_ control: FirstResponderControl)
-    {
+    func firstResponderControlDidBeginEditing(_ control: FirstResponderControl) {
         /*
          print ("[\(type(of: self)) \(#function)]")
          */
         self.state = .active
     }
-    
-    func firstResponderControlDidEndEditing(_ control: FirstResponderControl)
-    {
+    func firstResponderControlDidEndEditing(_ control: FirstResponderControl) {
         /*
          print ("[\(type(of: self)) \(#function)]")
          */

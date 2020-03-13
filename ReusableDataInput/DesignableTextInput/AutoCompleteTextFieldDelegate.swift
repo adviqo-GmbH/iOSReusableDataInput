@@ -8,8 +8,7 @@
 
 import Foundation
 
-@objc public protocol AutoCompleteTextFieldDelegate
-{
+@objc public protocol AutoCompleteTextFieldDelegate {
     func provideDatasource(_ textInput: DesignableTextInput)
     func returned(with selection: String)
     func textFieldCleared()

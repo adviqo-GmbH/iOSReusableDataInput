@@ -6,8 +6,7 @@
 //  Copyright © 2017 Alexander Pronin. All rights reserved.
 //
 
-@objc @IBDesignable public class DesignableTextInput: InputView
-{
+@IBDesignable public class DesignableTextInput: InputView {
     // MARK: - Autocomplete
     /*
     @objc public var autocompleteDelegate: AutoCompleteTextFieldDelegate?
@@ -27,7 +26,6 @@
         }
     }
     */
-    
     // MARK: - Public properties
     @IBOutlet public weak var textField: UITextField!
     @objc public weak var delegate: TextInputDelegate?
@@ -39,23 +37,17 @@
             self.textField.keyboardType = newValue
         }
     }
-    
     // MARK: - Getters & setters for superclas
-    
     // didSet for font
-    override func set(font: UIFont)
-    {
+    override func set(font: UIFont) {
         super.set(font: font)
         self.textField.font = font
     }
-    
     // didSet for textColor
-    internal override func set(textColor: UIColor?)
-    {
+    internal override func set(textColor: UIColor?) {
         self.textField.textColor = textColor
         super.set(textColor: textColor)
     }
-    
     // MARK: - Data management
     @objc override public var value: String? {
         get {
@@ -65,7 +57,6 @@
             self.text = newValue
         }
     }
-    
     @objc public var text: String? {
         set(newText) {
             self.set(text: newText, animated: false)
@@ -74,9 +65,7 @@
             return self.textField.text
         }
     }
-    
-    @objc public func set(text perhapsText: String?, animated: Bool)
-    {
+    @objc public func set(text perhapsText: String?, animated: Bool) {
         guard perhapsText != self.text else {
             return
         }
@@ -89,42 +78,41 @@
         self.textField.text = text
         self.set(mode: .title, animated: animated)
     }
-    
     // MARK: - Init
-    @objc public override init(frame: CGRect)
-    {
+    @objc public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViewsOnLoad(withDataView: self.textField, andResponder: self.textField)
     }
-    
-    @objc public required init?(coder aDecoder: NSCoder)
-    {
+    @objc public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setupViewsOnLoad(withDataView: self.textField, andResponder: self.textField)
     }
-    
     // MARK: - Private
-    internal override func xibSetup()
-    {
+    internal override func xibSetup() {
         super.xibSetup()
-        
         #if TARGET_INTERFACE_BUILDER
         // userInputView for Interface builder
         do {
             self.textField.removeFromSuperview()
-            
             self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
             self.rightImageView.translatesAutoresizingMaskIntoConstraints = false
-            let views:[String:UIView] = [
-                "titleLabel"        : self.titleLabel,
-                "rightImageView"    : self.rightImageView
+            let views: [String: UIView] = [
+                "titleLabel": self.titleLabel,
+                "rightImageView": self.rightImageView
             ]
             let metrics = [
-                "leftContentOffset"     : InputViewConstants.leftContentOffset,
-                "standardOffset"        : InputViewConstants.standardOffset,
-                "rightContentOffset"    : InputViewConstants.rightContentOffset
+                "leftContentOffset": InputViewConstants.leftContentOffset,
+                "standardOffset": InputViewConstants.standardOffset,
+                "rightContentOffset": InputViewConstants.rightContentOffset
             ]
-            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-leftContentOffset-[titleLabel]-standardOffset-[rightImageView]-rightContentOffset-|", options: NSLayoutConstraint.FormatOptions.init(rawValue: 0), metrics: metrics, views: views))
+            NSLayoutConstraint.activate(
+                NSLayoutConstraint.constraints(
+                    withVisualFormat: "H:|-leftContentOffset-[titleLabel]-standardOffset-[rightImageView]-rightContentOffset-|",
+                    options: NSLayoutConstraint.FormatOptions.init(rawValue: 0),
+                    metrics: metrics,
+                    views: views
+                )
+            )
             NSLayoutConstraint.activate([NSLayoutConstraint(item: self.rightImageView, attribute: .centerY, relatedBy: .equal, toItem: self.userInputView, attribute: .centerY, multiplier: 1, constant: 0)])
             NSLayoutConstraint.activate([NSLayoutConstraint(item: self.rightImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 24)])
             NSLayoutConstraint.activate([NSLayoutConstraint(item: self.rightImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 24)])
@@ -132,14 +120,10 @@
         }
         #endif
     }
-    
-    override func setupFramesOnce()
-    {
+    override func setupFramesOnce() {
         super.setupFramesOnce()
     }
-    
-    internal override func setupViewsOnLoad(withDataView dataView: UIView, andResponder responder: UIView)
-    {
+    internal override func setupViewsOnLoad(withDataView dataView: UIView, andResponder responder: UIView) {
         super.setupViewsOnLoad(withDataView: dataView, andResponder: responder)
         self.textField.delegate = self
         NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: self.textField, queue: nil) { notification in
@@ -149,17 +133,14 @@
             else { return }
             self.delegate?.textInputDidChange?(self)
         }
-        
         // Default falues
         #if TARGET_INTERFACE_BUILDER
         #endif
     }
 }
 
-extension DesignableTextInput: UITextFieldDelegate
-{
-    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
-    {
+extension DesignableTextInput: UITextFieldDelegate {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         /*
         self.currInput = ""
         */
@@ -170,16 +151,12 @@ extension DesignableTextInput: UITextFieldDelegate
         }
         return true
     }
-    
-    public func textFieldDidBeginEditing(_ textField: UITextField)
-    {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         // Scroll to visible
         self.delegate?.textInputDidBeginEditing?(self)
         self.scrollInputViewToVisible()
     }
-    
-    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
-    {
+    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         /*
          print ("[\(type(of: self)) \(#function)]")
          */
@@ -192,21 +169,16 @@ extension DesignableTextInput: UITextFieldDelegate
         }
         return true
     }
-    
-    public func textFieldDidEndEditing(_ textField: UITextField)
-    {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         self.delegate?.textInputDidEndEditing?(self)
         self.scrollInputViewToVisible()
     }
-    
     /*
      public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason)
      {
      }
      */
-    
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-    {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let  char = string.cString(using: String.Encoding.utf8)!
         let isBackSpace = (strcmp(char, "\\b") == -92)
         if isBackSpace && self.state == .error {
@@ -217,17 +189,13 @@ extension DesignableTextInput: UITextFieldDelegate
         }
         return true
     }
-    
-    public func textFieldShouldClear(_ textField: UITextField) -> Bool
-    {
+    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if let result = self.delegate?.textInputShouldClear?(self) {
             return result
         }
         return true
     }
-    
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let result = self.delegate?.textInputShouldReturn?(self) {
             return result
         }

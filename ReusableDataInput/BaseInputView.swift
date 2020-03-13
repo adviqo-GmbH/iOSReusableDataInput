@@ -8,10 +8,6 @@
 
 import UIKit
 
-public class BaseInputView: UIView
-{
-    @objc dynamic open func setupAppearance()
-    {
-        
-    }
+public class BaseInputView: UIView {
+    @objc dynamic open func setupAppearance() { }
 }

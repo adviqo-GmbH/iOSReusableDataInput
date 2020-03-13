@@ -34,6 +34,25 @@
 		0958C79A21F7275B00D864C7 /* PickerInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C79921F7275B00D864C7 /* PickerInputDelegate.swift */; };
 		0958C79C21F7364400D864C7 /* DatePickerInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958C79B21F7364400D864C7 /* DatePickerInputDelegate.swift */; };
 		0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0959848521F0ECB600A9AA4C /* SDKUtility.swift */; };
+		095B6EAB241BFBB60099A0E7 /* InputView+InputViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EAA241BFBB60099A0E7 /* InputView+InputViewProtocol.swift */; };
+		095B6EAD241BFC1F0099A0E7 /* InputView+InputViewValidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EAC241BFC1F0099A0E7 /* InputView+InputViewValidatable.swift */; };
+		095B6EAF241BFCBF0099A0E7 /* InputView+InputParametersProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EAE241BFCBF0099A0E7 /* InputView+InputParametersProtocol.swift */; };
+		095B6EB1241BFD430099A0E7 /* InputView+leftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EB0241BFD430099A0E7 /* InputView+leftImage.swift */; };
+		095B6EB3241BFE720099A0E7 /* InputView+messageFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EB2241BFE720099A0E7 /* InputView+messageFont.swift */; };
+		095B6EB5241BFEB30099A0E7 /* InputView+title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EB4241BFEB30099A0E7 /* InputView+title.swift */; };
+		095B6EB7241BFF000099A0E7 /* InputView+isSeparatorHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EB6241BFF000099A0E7 /* InputView+isSeparatorHidden.swift */; };
+		095B6EB9241BFF6D0099A0E7 /* InputView+ModeManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EB8241BFF6D0099A0E7 /* InputView+ModeManagement.swift */; };
+		095B6EBB241C01EA0099A0E7 /* InputView+UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EBA241C01EA0099A0E7 /* InputView+UIControl.swift */; };
+		095B6EBD241C025E0099A0E7 /* InputView+background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EBC241C025E0099A0E7 /* InputView+background.swift */; };
+		095B6EBF241C02D00099A0E7 /* InputView+rightImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EBE241C02D00099A0E7 /* InputView+rightImage.swift */; };
+		095B6EC1241C03500099A0E7 /* InputView+xibAndBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EC0241C03500099A0E7 /* InputView+xibAndBundle.swift */; };
+		095B6EC3241C05540099A0E7 /* InputView+StateManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EC2241C05540099A0E7 /* InputView+StateManagement.swift */; };
+		095B6EC5241C062E0099A0E7 /* InputView+notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EC4241C062E0099A0E7 /* InputView+notifications.swift */; };
+		095B6EC7241C07290099A0E7 /* InputView+LayoutCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B6EC6241C07290099A0E7 /* InputView+LayoutCalculations.swift */; };
+		095E514A241BDE58008550FC /* DesignablePhoneNumberInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E5145241BDE58008550FC /* DesignablePhoneNumberInput.swift */; };
+		095E514B241BDE58008550FC /* DesignablePhoneNumberInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 095E5146241BDE58008550FC /* DesignablePhoneNumberInput.xib */; };
+		095E514C241BDE58008550FC /* PhoneNumberMaskHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E5148241BDE58008550FC /* PhoneNumberMaskHelper.swift */; };
+		095E514D241BDE58008550FC /* PhoneNumberMaskHelper.plist in Resources */ = {isa = PBXBuildFile; fileRef = 095E5149241BDE58008550FC /* PhoneNumberMaskHelper.plist */; };
 		0969A7FB21F8BE1A00845CBD /* DesignableMaskedTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A7F921F8BE1A00845CBD /* DesignableMaskedTextInput.swift */; };
 		0969A7FC21F8BE1A00845CBD /* DesignableMaskedTextInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0969A7FA21F8BE1A00845CBD /* DesignableMaskedTextInput.xib */; };
 		0969A7FE21F8BE9D00845CBD /* MaskedTextInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A7FD21F8BE9D00845CBD /* MaskedTextInputDelegate.swift */; };
@@ -82,6 +101,25 @@
 		0958C79921F7275B00D864C7 /* PickerInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerInputDelegate.swift; sourceTree = "<group>"; };
 		0958C79B21F7364400D864C7 /* DatePickerInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerInputDelegate.swift; sourceTree = "<group>"; };
 		0959848521F0ECB600A9AA4C /* SDKUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKUtility.swift; sourceTree = "<group>"; };
+		095B6EAA241BFBB60099A0E7 /* InputView+InputViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+InputViewProtocol.swift"; sourceTree = "<group>"; };
+		095B6EAC241BFC1F0099A0E7 /* InputView+InputViewValidatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+InputViewValidatable.swift"; sourceTree = "<group>"; };
+		095B6EAE241BFCBF0099A0E7 /* InputView+InputParametersProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+InputParametersProtocol.swift"; sourceTree = "<group>"; };
+		095B6EB0241BFD430099A0E7 /* InputView+leftImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+leftImage.swift"; sourceTree = "<group>"; };
+		095B6EB2241BFE720099A0E7 /* InputView+messageFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+messageFont.swift"; sourceTree = "<group>"; };
+		095B6EB4241BFEB30099A0E7 /* InputView+title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+title.swift"; sourceTree = "<group>"; };
+		095B6EB6241BFF000099A0E7 /* InputView+isSeparatorHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+isSeparatorHidden.swift"; sourceTree = "<group>"; };
+		095B6EB8241BFF6D0099A0E7 /* InputView+ModeManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+ModeManagement.swift"; sourceTree = "<group>"; };
+		095B6EBA241C01EA0099A0E7 /* InputView+UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+UIControl.swift"; sourceTree = "<group>"; };
+		095B6EBC241C025E0099A0E7 /* InputView+background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+background.swift"; sourceTree = "<group>"; };
+		095B6EBE241C02D00099A0E7 /* InputView+rightImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+rightImage.swift"; sourceTree = "<group>"; };
+		095B6EC0241C03500099A0E7 /* InputView+xibAndBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+xibAndBundle.swift"; sourceTree = "<group>"; };
+		095B6EC2241C05540099A0E7 /* InputView+StateManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+StateManagement.swift"; sourceTree = "<group>"; };
+		095B6EC4241C062E0099A0E7 /* InputView+notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+notifications.swift"; sourceTree = "<group>"; };
+		095B6EC6241C07290099A0E7 /* InputView+LayoutCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputView+LayoutCalculations.swift"; sourceTree = "<group>"; };
+		095E5145241BDE58008550FC /* DesignablePhoneNumberInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignablePhoneNumberInput.swift; sourceTree = "<group>"; };
+		095E5146241BDE58008550FC /* DesignablePhoneNumberInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignablePhoneNumberInput.xib; sourceTree = "<group>"; };
+		095E5148241BDE58008550FC /* PhoneNumberMaskHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberMaskHelper.swift; sourceTree = "<group>"; };
+		095E5149241BDE58008550FC /* PhoneNumberMaskHelper.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhoneNumberMaskHelper.plist; sourceTree = "<group>"; };
 		0969A7F921F8BE1A00845CBD /* DesignableMaskedTextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableMaskedTextInput.swift; sourceTree = "<group>"; };
 		0969A7FA21F8BE1A00845CBD /* DesignableMaskedTextInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignableMaskedTextInput.xib; sourceTree = "<group>"; };
 		0969A7FD21F8BE9D00845CBD /* MaskedTextInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedTextInputDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +190,7 @@
 				093F813221F0BFE5000D0525 /* Notification.Name+Extension.swift */,
 				093F813421F0C840000D0525 /* FirstResponderControl.swift */,
 				093F813821F0CC5E000D0525 /* BaseInputView.swift */,
-				093F813A21F0CCB8000D0525 /* InputView.swift */,
+				095B6EA9241BFB790099A0E7 /* InputView */,
 				0958C78B21F726EF00D864C7 /* DesignablePicker */,
 				0958C78521F726EF00D864C7 /* DesignableDatePicker */,
 				09436E2021F2110E00AD010A /* DesignableTextInput */,
@@ -160,6 +198,7 @@
 				0969A80121F8C85600845CBD /* DesignableMonthYearPicker */,
 				09C6DCAC237FFA6B00AC2C95 /* DesignableTextView */,
 				09BBC27A239A870200293BD3 /* DesignableCountryPicker */,
+				095E5144241BDDE2008550FC /* DesignablePhoneNumberInput */,
 			);
 			path = ReusableDataInput;
 			sourceTree = "<group>";
@@ -226,6 +265,48 @@
 				0958C78E21F726EF00D864C7 /* PickerInputViewController.swift */,
 			);
 			path = PickerInputViewController;
+			sourceTree = "<group>";
+		};
+		095B6EA9241BFB790099A0E7 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				093F813A21F0CCB8000D0525 /* InputView.swift */,
+				095B6EC6241C07290099A0E7 /* InputView+LayoutCalculations.swift */,
+				095B6EC4241C062E0099A0E7 /* InputView+notifications.swift */,
+				095B6EC2241C05540099A0E7 /* InputView+StateManagement.swift */,
+				095B6EC0241C03500099A0E7 /* InputView+xibAndBundle.swift */,
+				095B6EBE241C02D00099A0E7 /* InputView+rightImage.swift */,
+				095B6EBC241C025E0099A0E7 /* InputView+background.swift */,
+				095B6EBA241C01EA0099A0E7 /* InputView+UIControl.swift */,
+				095B6EB8241BFF6D0099A0E7 /* InputView+ModeManagement.swift */,
+				095B6EB6241BFF000099A0E7 /* InputView+isSeparatorHidden.swift */,
+				095B6EB4241BFEB30099A0E7 /* InputView+title.swift */,
+				095B6EB2241BFE720099A0E7 /* InputView+messageFont.swift */,
+				095B6EB0241BFD430099A0E7 /* InputView+leftImage.swift */,
+				095B6EAE241BFCBF0099A0E7 /* InputView+InputParametersProtocol.swift */,
+				095B6EAA241BFBB60099A0E7 /* InputView+InputViewProtocol.swift */,
+				095B6EAC241BFC1F0099A0E7 /* InputView+InputViewValidatable.swift */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
+		095E5144241BDDE2008550FC /* DesignablePhoneNumberInput */ = {
+			isa = PBXGroup;
+			children = (
+				095E5145241BDE58008550FC /* DesignablePhoneNumberInput.swift */,
+				095E5146241BDE58008550FC /* DesignablePhoneNumberInput.xib */,
+				095E5147241BDE58008550FC /* PhoneNumberMaskHelper */,
+			);
+			path = DesignablePhoneNumberInput;
+			sourceTree = "<group>";
+		};
+		095E5147241BDE58008550FC /* PhoneNumberMaskHelper */ = {
+			isa = PBXGroup;
+			children = (
+				095E5148241BDE58008550FC /* PhoneNumberMaskHelper.swift */,
+				095E5149241BDE58008550FC /* PhoneNumberMaskHelper.plist */,
+			);
+			path = PhoneNumberMaskHelper;
 			sourceTree = "<group>";
 		};
 		0969A7F821F8BDEA00845CBD /* DesignableMaskedTextInput */ = {
@@ -310,6 +391,7 @@
 				093F80FD21F09E15000D0525 /* Sources */,
 				093F80FE21F09E15000D0525 /* Frameworks */,
 				093F80FF21F09E15000D0525 /* Resources */,
+				095B6EA7241BF51E0099A0E7 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -358,12 +440,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095E514B241BDE58008550FC /* DesignablePhoneNumberInput.xib in Resources */,
 				09436E2421F2117B00AD010A /* DesignableTextInput.xib in Resources */,
 				0958C79121F726EF00D864C7 /* DesignableDatePicker.xib in Resources */,
 				09C6DCB0237FFA9A00AC2C95 /* DesignableTextView.xib in Resources */,
 				0958C79221F726EF00D864C7 /* DatePickerInputViewController.xib in Resources */,
 				0969A80A21F8C88B00845CBD /* MonthYearPickerInputViewController.xib in Resources */,
 				0958C79721F726EF00D864C7 /* DesignablePicker.xib in Resources */,
+				095E514D241BDE58008550FC /* PhoneNumberMaskHelper.plist in Resources */,
 				09BBC282239A873F00293BD3 /* CountryPickerView.xib in Resources */,
 				0969A7FC21F8BE1A00845CBD /* DesignableMaskedTextInput.xib in Resources */,
 				0969A80821F8C88B00845CBD /* DesignableMonthYearPicker.xib in Resources */,
@@ -375,6 +459,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		095B6EA7241BF51E0099A0E7 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		AFA53C53FC01C1A594A5C02D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,36 +506,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095B6EC5241C062E0099A0E7 /* InputView+notifications.swift in Sources */,
+				095B6EB7241BFF000099A0E7 /* InputView+isSeparatorHidden.swift in Sources */,
 				093F813121F0AEB0000D0525 /* StatefulInput.swift in Sources */,
 				0958C79A21F7275B00D864C7 /* PickerInputDelegate.swift in Sources */,
+				095B6EB1241BFD430099A0E7 /* InputView+leftImage.swift in Sources */,
 				0958C79821F726EF00D864C7 /* DesignablePicker.swift in Sources */,
+				095B6EC7241C07290099A0E7 /* InputView+LayoutCalculations.swift in Sources */,
 				09C6DCAF237FFA9A00AC2C95 /* DesignableTextView.swift in Sources */,
 				0958C79321F726EF00D864C7 /* DatePickerInputViewController.swift in Sources */,
+				095B6EAD241BFC1F0099A0E7 /* InputView+InputViewValidatable.swift in Sources */,
+				095E514C241BDE58008550FC /* PhoneNumberMaskHelper.swift in Sources */,
 				093F813521F0C840000D0525 /* FirstResponderControl.swift in Sources */,
+				095B6EBB241C01EA0099A0E7 /* InputView+UIControl.swift in Sources */,
 				093F813D21F0CD2A000D0525 /* InputViewValidator.swift in Sources */,
 				0969A7FB21F8BE1A00845CBD /* DesignableMaskedTextInput.swift in Sources */,
+				095B6EC1241C03500099A0E7 /* InputView+xibAndBundle.swift in Sources */,
 				09C6DCB42380090600AC2C95 /* TextViewDelegate.swift in Sources */,
+				095B6EC3241C05540099A0E7 /* InputView+StateManagement.swift in Sources */,
 				0958C79C21F7364400D864C7 /* DatePickerInputDelegate.swift in Sources */,
+				095B6EBD241C025E0099A0E7 /* InputView+background.swift in Sources */,
 				0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */,
 				0958C79621F726EF00D864C7 /* PickerInputViewController.swift in Sources */,
+				095B6EBF241C02D00099A0E7 /* InputView+rightImage.swift in Sources */,
 				09436E2321F2117B00AD010A /* DesignableTextInput.swift in Sources */,
 				09BBC27F239A873F00293BD3 /* CountryPickerView.swift in Sources */,
+				095B6EAB241BFBB60099A0E7 /* InputView+InputViewProtocol.swift in Sources */,
 				09BBC281239A873F00293BD3 /* DesignableCountryPicker.swift in Sources */,
 				0969A80C21F8C8AC00845CBD /* MonthYearPickerInputDelegate.swift in Sources */,
+				095B6EB5241BFEB30099A0E7 /* InputView+title.swift in Sources */,
 				093F812B21F0AD47000D0525 /* InputParametersProtocol.swift in Sources */,
 				093F813321F0BFE5000D0525 /* Notification.Name+Extension.swift in Sources */,
 				093F813921F0CC5E000D0525 /* BaseInputView.swift in Sources */,
+				095E514A241BDE58008550FC /* DesignablePhoneNumberInput.swift in Sources */,
 				09436E2621F2124200AD010A /* TextInputDelegate.swift in Sources */,
+				095B6EAF241BFCBF0099A0E7 /* InputView+InputParametersProtocol.swift in Sources */,
 				09436E1E21F2105C00AD010A /* InputViewCollectionProtocol.swift in Sources */,
 				09436E2821F213B500AD010A /* AutoCompleteTextFieldDelegate.swift in Sources */,
 				093F812D21F0ADA7000D0525 /* InputViewTypes.swift in Sources */,
 				093F813B21F0CCB8000D0525 /* InputView.swift in Sources */,
 				093F813721F0CBB5000D0525 /* InputViewValidatable.swift in Sources */,
+				095B6EB9241BFF6D0099A0E7 /* InputView+ModeManagement.swift in Sources */,
 				0958C79421F726EF00D864C7 /* DesignableDatePicker.swift in Sources */,
 				0969A80721F8C88B00845CBD /* DesignableMonthYearPicker.swift in Sources */,
 				0969A80921F8C88B00845CBD /* MonthYearPickerInputViewController.swift in Sources */,
 				093F812F21F0AE27000D0525 /* InputViewProtocol.swift in Sources */,
 				0969A7FE21F8BE9D00845CBD /* MaskedTextInputDelegate.swift in Sources */,
+				095B6EB3241BFE720099A0E7 /* InputView+messageFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

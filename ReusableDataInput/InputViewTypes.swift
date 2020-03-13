@@ -8,19 +8,16 @@
 
 import Foundation
 
-@objc public enum InputViewState: Int
-{
+@objc public enum InputViewState: Int {
     case normal = 0
     case active = 1
     case error = 2
     case info = 3
 }
 
-@objc public enum InputViewMode: Int
-{
+@objc public enum InputViewMode: Int {
     case placeholder = 0
     case title = 1
-    
     var description: String {
         switch self {
         case .placeholder:
@@ -31,8 +28,7 @@ import Foundation
     }
 }
 
-struct InputViewConstants
-{
+struct InputViewConstants {
     public static let standardOffset: CGFloat = 8
     public static let leftContentOffset = InputViewConstants.standardOffset
     public static let topContentOffset = InputViewConstants.standardOffset
@@ -40,9 +36,7 @@ struct InputViewConstants
     public static let leftImageVerticalOffset: CGFloat = 12
     public static let titleAnimationDuration: TimeInterval = 0.3
     static let defaultUserInputViewHeight: CGFloat = 50
-    
-    enum TextView
-    {
+    enum TextView {
         static let charactersLimit = 5000
     }
 }

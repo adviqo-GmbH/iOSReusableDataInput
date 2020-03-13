@@ -8,7 +8,6 @@
 
 import Foundation
 
-public protocol InputViewCollectionProtocol: class
-{
+public protocol InputViewCollectionProtocol: class {
     var inputViewCollection: [InputView]! { get }
 }

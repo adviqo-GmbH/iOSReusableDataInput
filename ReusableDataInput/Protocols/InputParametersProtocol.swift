@@ -8,8 +8,7 @@
 
 import Foundation
 
-@objc public protocol InputParametersProtocol
-{
+@objc public protocol InputParametersProtocol {
     var name: String? { get set }
     var infoMessage: String? { get set }
     var errorMessage: String? { get set }

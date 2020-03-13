@@ -8,8 +8,7 @@
 
 import UIKit
 
-@objc public protocol InputViewProtocol
-{
+@objc public protocol InputViewProtocol {
     @objc func resignFirstResponderWith(touch: UITouch)
     @objc func isTouched(touch: UITouch) -> Bool
 }

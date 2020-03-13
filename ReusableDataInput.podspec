@@ -114,7 +114,8 @@ Pod::Spec.new do |s|
       'ReusableDataInput' => [
           'ReusableDataInput/**/*.json',
           'ReusableDataInput/**/*.xcassets',
-          'ReusableDataInput/**/*.xib'
+          'ReusableDataInput/**/*.xib',
+          'ReusableDataInput/**/PhoneNumberMaskHelper.plist'
       ]
     }
 

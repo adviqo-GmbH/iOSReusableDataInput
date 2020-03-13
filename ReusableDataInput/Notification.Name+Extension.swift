@@ -8,7 +8,6 @@
 
 import Foundation
 
-extension Notification.Name
-{
+extension Notification.Name {
     public static let inputViewDidLayoutSubviews = Notification.Name("ReusableDataInput_inputViewDidLayoutSubviews")
 }

@@ -12,8 +12,7 @@
 import UIKit
 import iOSReusableExtensions
 
-protocol FirstResponderControlDelegate: class
-{
+protocol FirstResponderControlDelegate: class {
     func firstResponderControlDidEndEditing(_ control: FirstResponderControl)
     func firstResponderControlDidBeginEditing(_ control: FirstResponderControl)
     func firstResponderControlShouldBeginEditing(_ control: FirstResponderControl) -> Bool
@@ -22,8 +21,7 @@ protocol FirstResponderControlDelegate: class
     //    func firstResponderControlHasText(_ control: FirstResponderControl) -> Bool
 }
 
-class FirstResponderControl: UIControl, UITextInputTraits
-{
+class FirstResponderControl: UIControl, UITextInputTraits {
     weak var delegate: FirstResponderControlDelegate?
     private var _inputView: UIView?
     override var inputView: UIView? {
@@ -34,7 +32,6 @@ class FirstResponderControl: UIControl, UITextInputTraits
             _inputView = newValue
         }
     }
-    
     private var _inputAccessoryView: UIView?
     override var inputAccessoryView: UIView? {
         get {
@@ -44,32 +41,22 @@ class FirstResponderControl: UIControl, UITextInputTraits
             _inputAccessoryView = newValue
         }
     }
-    
-    override init(frame: CGRect)
-    {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         addTarget(self, action: #selector(becomeFirstResponder), for: .touchUpInside)
     }
-    
-    override var canBecomeFirstResponder: Bool
-    {
+    override var canBecomeFirstResponder: Bool {
         return true
     }
-    
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         addTarget(self, action: #selector(becomeFirstResponder), for: .touchUpInside)
     }
-    
-    override func resignFirstResponder() -> Bool
-    {
+    override func resignFirstResponder() -> Bool {
         self.delegate?.firstResponderControlDidEndEditing(self)
         return super.resignFirstResponder()
     }
-    
-    override func becomeFirstResponder() -> Bool
-    {
+    override func becomeFirstResponder() -> Bool {
         if let result = self.delegate?.firstResponderControlShouldBeginEditing(self), !result {
             return false
         }
@@ -86,9 +73,7 @@ class FirstResponderControl: UIControl, UITextInputTraits
         }
         return true
     }
-    
-    //MARK: - Helper
-    
+    // MARK: - Helper
     /*
      func insertText(_ text: String)
      {

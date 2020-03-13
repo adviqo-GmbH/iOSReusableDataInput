@@ -8,10 +8,8 @@
 
 import Foundation
 
-class SDKUtility
-{
-    class func frameworkName() -> String
-    {
+class SDKUtility {
+    class func frameworkName() -> String {
         return "ReusableDataInput"
     }
 }

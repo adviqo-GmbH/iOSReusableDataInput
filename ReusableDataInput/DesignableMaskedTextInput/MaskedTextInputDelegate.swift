@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc public protocol MaskedTextInputDelegate: TextInputDelegate
-{
+@objc public protocol MaskedTextInputDelegate: TextInputDelegate {
     @objc optional func textInput(_ textInput: DesignableMaskedTextInput, didFillMandatoryCharacters complete: Bool, didExtractValue value: String)
 }

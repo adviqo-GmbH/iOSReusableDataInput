@@ -9,12 +9,9 @@
 import UIKit
 import CountryKit
 
-@objc @IBDesignable public class DesignableCountryPicker: DesignablePicker
-{
+@IBDesignable public class DesignableCountryPicker: DesignablePicker {
     @objc public var locale: NSLocale?
-    
-    //MARK: - Data management
-    
+    // MARK: - Data management
     @objc override public var value: String? {
         get {
             return self._value
@@ -23,11 +20,10 @@ import CountryKit
             self.state = .normal
             if
                 let valueString = newValue,
-                valueString.count > 0,
+                !valueString.isEmpty,
                 let country = self.countryKit.searchByIsoCode(valueString)
             {
                 self._value = valueString
-                
                 let title: String
                 if let locale = self.locale as Locale? {
                     title = country.name(forLocale: locale)
@@ -39,7 +35,7 @@ import CountryKit
                 self.leftImage = country.flagImage
                 if
                     let data = self.data,
-                    data.count > 0,
+                    !data.isEmpty,
                     let index = data.firstIndex(of: valueString)
                 {
                     self.selectedIndex = data.distance(from: data.startIndex, to: index)
@@ -52,31 +48,27 @@ import CountryKit
             }
         }
     }
-    
     @objc public override var data: [String]? {
         get {
-            guard let countries = self.countries, countries.count > 0 else { return nil }
-            return countries.map{ $0.iso }
+            guard let countries = self.countries, !countries.isEmpty else { return nil }
+            return countries.map { $0.iso }
         }
         set {
             guard let isoCodeList = newValue else { return }
             let countries = isoCodeList.compactMap { self.countryKit.searchByIsoCode($0) }
-            guard countries.count > 0 else { return }
+            guard !countries.isEmpty else { return }
             self.countries = countries
-            self.pickerInputViewController.data = countries.map{ $0.iso }
+            self.pickerInputViewController.data = countries.map { $0.iso }
         }
     }
-    
     // MARK: - PickerInputViewControllerDelegate
-    
     override internal func pickerInputViewControllerDidCancel(_ controller: PickerInputViewController) {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
         super.pickerInputViewControllerDidCancel(controller)
     }
-    
-    override internal func pickerInput(_ controller: PickerInputViewController, doneWithValue value: String, andIndex index:Int) {
+    override internal func pickerInput(_ controller: PickerInputViewController, doneWithValue value: String, andIndex index: Int) {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
@@ -101,20 +93,17 @@ import CountryKit
         }
         self.delegate?.pickerInput(self, doneWithValue: value, andIndex: index)
     }
-    
-    override internal func pickerInput(_ controller: PickerInputViewController, changedWithValue value: String, andIndex index:Int) {
+    override internal func pickerInput(_ controller: PickerInputViewController, changedWithValue value: String, andIndex index: Int) {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
         self.delegate?.pickerInput?(self, changedWithValue: value, andIndex: index)
     }
-    
     override internal func pickerInput(_ controller: PickerInputViewController, viewForRow row: Int, reusing view: UIView?) -> UIView? {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
         if let delegateView = self.delegate?.pickerInput?(self, viewForRow: row, reusing: view) { return delegateView }
-        
         let countryView: CountryPickerView
         if view == nil {
             let className = String.className(CountryPickerView.classForCoder())
@@ -141,7 +130,6 @@ import CountryKit
         countryView.iconImageView.image = countries[row].flagImage
         return countryView
     }
-    
     override internal func pickerInput(_ controller: PickerInputViewController, titleForRow row: Int) -> String? {
         /*
          print("[\(type(of: self)) \(#function)]")
@@ -153,7 +141,6 @@ import CountryKit
             // try to get title from delegate
             return delegateTitle
         }
-        
         // try to get localized title
         if
             let countries = self.countries,
@@ -173,25 +160,22 @@ import CountryKit
         }
         return nil
     }
-    
     override internal func pickerInputRowHeight(_ controller: PickerInputViewController) -> CGFloat? {
         /*
          print("[\(type(of: self)) \(#function)]")
          */
         return super.pickerInputRowHeight(controller)
     }
-    
     // MARK: - Private
-    
     fileprivate let countryKit = CountryKit()
     fileprivate var countries: [Country]?
-    
     fileprivate var _value: String?
-    
     internal override func loadViewFromXib() -> UIView {
         let className = String.className(superclass!)
         let nib = UINib(nibName: className, bundle: self.bundle)
-        let loadedView = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        guard let loadedView = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
+            preconditionFailure("Unable to load view")
+        }
         return loadedView
     }
 }
