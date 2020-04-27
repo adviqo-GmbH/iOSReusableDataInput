@@ -9,7 +9,5 @@
 import UIKit
 
 public class BaseInputView: UIView {
-    @objc dynamic open func setupAppearance() {
-        // Do nothing
-    }
+    @objc dynamic open func setupAppearance() {}
 }
