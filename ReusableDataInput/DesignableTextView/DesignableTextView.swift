@@ -30,7 +30,7 @@ import UIKit
         super.set(font: font)
         self.textView.font = font
     }
-    internal override func set(textColor: UIColor?) {
+    public override func set(textColor: UIColor?) {
         self.textView.textColor = textColor
         super.set(textColor: textColor)
     }

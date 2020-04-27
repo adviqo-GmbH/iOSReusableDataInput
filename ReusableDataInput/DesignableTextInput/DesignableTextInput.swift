@@ -5,11 +5,10 @@
 //  Created by Oleksandr Pronin on 08.10.17.
 //  Copyright © 2017 Alexander Pronin. All rights reserved.
 //
-
+// swiftlint:disable discarded_notification_center_observer
 @IBDesignable public class DesignableTextInput: InputView {
     // MARK: - Autocomplete
-    /*
-    @objc public var autocompleteDelegate: AutoCompleteTextFieldDelegate?
+    @objc public weak var autocompleteDelegate: AutoCompleteTextFieldDelegate?
     @objc public var currInput: String = ""
     @objc public var lightTextColor: UIColor = UIColor.gray {
         didSet {
@@ -25,7 +24,6 @@
             }
         }
     }
-    */
     // MARK: - Public properties
     @IBOutlet public weak var textField: UITextField!
     @objc public weak var delegate: TextInputDelegate?
@@ -44,7 +42,7 @@
         self.textField.font = font
     }
     // didSet for textColor
-    internal override func set(textColor: UIColor?) {
+    public override func set(textColor: UIColor?) {
         self.textField.textColor = textColor
         super.set(textColor: textColor)
     }
@@ -200,5 +198,31 @@ extension DesignableTextInput: UITextFieldDelegate {
             return result
         }
         return true
+    }
+    // MARK: Autocomplete extensions methods
+    private func updateText(_ string: String, at range: NSRange, in textField: UITextField) {
+        Range(range, in: currInput).map { currInput.replaceSubrange($0, with: string) }
+        textField.text = self.currInput
+    }
+    private func noDatasourceMatch(for textField: UITextField) {
+        textField.attributedText = NSMutableAttributedString.init(string: self.currInput as String)
+    }
+    private func findDatasourceMatch(for textField: UITextField) {
+        guard let datasource = self.datasource else { return }
+        let allOptions = datasource.filter({ $0.hasPrefix(self.currInput.capitalized) })
+        let exactMatch = allOptions.filter({ $0 == self.currInput.capitalized })
+        let fullName = !exactMatch.isEmpty ? exactMatch.last! : allOptions.last ?? self.currInput
+        let substr = fullName//[self.currInput.length...]?.string ?? ""
+        if let range = fullName.range(of: substr) {
+            let nsRange = NSRange(range, in: fullName)
+            let attribute = NSMutableAttributedString.init(string: fullName as String)
+            attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: self.lightTextColor, range: nsRange)
+            textField.attributedText = attribute
+        }
+    }
+    private func updateCursorPosition(in textField: UITextField) {
+        if let newPosition = textField.position(from: textField.beginningOfDocument, offset: self.currInput.count) {
+            textField.selectedTextRange = textField.textRange(from: newPosition, to: newPosition)
+        }
     }
 }

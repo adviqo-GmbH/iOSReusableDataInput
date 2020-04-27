@@ -39,6 +39,14 @@ import UIKit
             self.pickerInputViewController.toolbar.backgroundColor = newValue
         }
     }
+    @IBInspectable public var pickerBackgroundColor: UIColor? {
+        get {
+            return self.pickerInputViewController.backgroundColor
+        }
+        set {
+            self.pickerInputViewController.backgroundColor = newValue ?? UIColor.white
+        }
+    }
     @objc public var pickerFont: UIFont? {
         get {
             return self.pickerInputViewController.font
@@ -54,7 +62,7 @@ import UIKit
         self.textLabel.font = font
     }
     // didSet for textColor
-    internal override func set(textColor: UIColor?) {
+    public override func set(textColor: UIColor?) {
         self.textLabel.textColor = textColor
         super.set(textColor: textColor)
     }
@@ -115,7 +123,7 @@ import UIKit
     }
     // MARK: - Private
     fileprivate var _value: String?
-    @IBOutlet internal weak var textLabel: UILabel!
+    @IBOutlet public weak var textLabel: UILabel!
     @IBOutlet internal weak var responderView: FirstResponderControl!
     internal var pickerInputViewController: PickerInputViewController!
     internal var text: String? {

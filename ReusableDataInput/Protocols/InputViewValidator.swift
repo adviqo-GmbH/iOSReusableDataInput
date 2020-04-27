@@ -8,8 +8,7 @@
 
 import Foundation
 
-@objc public protocol InputViewValidator: class, NSObjectProtocol
-{
+@objc public protocol InputViewValidator: class, NSObjectProtocol {
     @objc optional func inputView(_ inputView: InputView, shouldValidateValue value: String?) -> Bool
     @objc optional func inputViewAsync(_ result: @escaping (_ response: Bool) -> Void)
 }

@@ -24,6 +24,14 @@ import UIKit
             self.pickerInputViewController.tintColor = newValue
         }
     }
+    @IBInspectable public var pickerBackgroundColor: UIColor? {
+        get {
+            return self.pickerInputViewController.backgroundColor
+        }
+        set {
+            self.pickerInputViewController.backgroundColor = newValue ?? UIColor.white
+        }
+    }
     @IBInspectable public var toolbarBackgroundColor: UIColor? {
         get {
             return self.pickerInputViewController.toolbar.backgroundColor
@@ -39,7 +47,7 @@ import UIKit
         self.textLabel.font = font
     }
     // didSet for textColor
-    internal override func set(textColor: UIColor?) {
+    public override func set(textColor: UIColor?) {
         self.textLabel.textColor = textColor
         super.set(textColor: textColor)
     }
