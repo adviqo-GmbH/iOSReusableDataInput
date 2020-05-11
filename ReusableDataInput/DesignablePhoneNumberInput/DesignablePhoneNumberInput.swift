@@ -90,7 +90,7 @@ import InputMask
                 if oldPhoneCode == oldValue {
                     self._value = nil
                 } else if oldValue.hasPrefix(oldPhoneCode) {
-                    self._value = String(oldValue.dropFirst(oldPhoneCode.length))
+                    self._value = String(oldValue.dropFirst(oldPhoneCode.count))
                 }
             }
             self.country = country
@@ -116,7 +116,7 @@ import InputMask
         guard phoneNumber.hasPrefix(phoneCode) else {
             return phoneNumber
         }
-        return String(phoneNumber.dropFirst(phoneCode.length))
+        return String(phoneNumber.dropFirst(phoneCode.count))
     }
     @objc override public var value: String? {
         get {
@@ -146,7 +146,7 @@ import InputMask
                 phoneNumber = String(phoneNumber.dropFirst())
             }
             if let phoneCode = self.phoneCode, phoneNumber.hasPrefix(phoneCode) {
-                phoneNumber = String(phoneNumber.dropFirst(phoneCode.length))
+                phoneNumber = String(phoneNumber.dropFirst(phoneCode.count))
             }
             self._value = phoneNumber
             let valueString: String
@@ -202,7 +202,7 @@ import InputMask
                 self.format = aFormat
             } else {
                 // default country format
-                self.format = "+[\(String(repeating: "9", count: phoneCodeString.length))] [\(String(repeating: "9", count: 13))]"
+                self.format = "+[\(String(repeating: "9", count: phoneCodeString.count))] [\(String(repeating: "9", count: 13))]"
             }
             /*
              print("[\(type(of: self)) \(#function)] format: \(self.format!)")
@@ -226,7 +226,7 @@ import InputMask
         }
     }
     fileprivate func searchBy(phoneNumber perhapsPhoneNumber: String?) -> Country? {
-        guard var phoneNumber = perhapsPhoneNumber, !phoneNumber.isEmpty, phoneNumber.length > 1 else {
+        guard var phoneNumber = perhapsPhoneNumber, !phoneNumber.isEmpty, phoneNumber.count > 1 else {
             return nil
         }
         guard
@@ -300,7 +300,7 @@ extension DesignablePhoneNumberInput {
         }
         if let country = self.country, let phoneCode = country.phoneCode {
             let phoneCodeString = String(phoneCode)
-            if value.length >= phoneCodeString.length {
+            if value.count >= phoneCodeString.count {
                 return
             }
         }
