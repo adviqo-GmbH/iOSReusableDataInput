@@ -235,8 +235,6 @@ extension DesignableTextInput: UITextFieldDelegate {
         let exactMatch = allOptions.filter() { $0 == currInput.capitalized }
         let fullName = exactMatch.last ?? (allOptions.last ?? self.currInput)
         
-        let substr = fullName.substring(from: currInput.endIndex)
-
         if fullName.count > currInput.count {
             let nsRange =  NSRange(
                 location: currInput.count,
