@@ -19,8 +19,9 @@
     @objc public var datasource: [String]? {
         didSet {
             if datasource?.isEmpty == false {
+                let selection = textField.selectedTextRange
                 findDatasourceMatch(for: textField)
-                updateCursorPosition(in: textField)
+                textField.selectedTextRange = selection
             }
         }
     }
@@ -64,17 +65,18 @@
         }
     }
     @objc public func set(text perhapsText: String?, animated: Bool) {
-        guard perhapsText != self.text else {
+        guard perhapsText != text else {
             return
         }
-        guard let text = perhapsText else {
-            self.textField.text = nil
-            self.state = .normal
-            self.set(mode: .placeholder, animated: animated)
+        
+        currInput = perhapsText ?? ""
+        textField.text = currInput
+        guard perhapsText != nil else {
+            state = .normal
+            set(mode: .placeholder, animated: animated)
             return
         }
-        self.textField.text = text
-        self.set(mode: .title, animated: animated)
+        set(mode: .title, animated: animated)
     }
     // MARK: - Init
     @objc public override init(frame: CGRect) {
@@ -139,9 +141,6 @@
 
 extension DesignableTextInput: UITextFieldDelegate {
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        /*
-        self.currInput = ""
-        */
         self.state = .active
         self.set(mode: .title, animated: true)
         if let result = self.delegate?.textInputShouldBeginEditing?(self) {
@@ -168,6 +167,17 @@ extension DesignableTextInput: UITextFieldDelegate {
         return true
     }
     public func textFieldDidEndEditing(_ textField: UITextField) {
+        if datasource?.isEmpty == false {
+            if let string = textField.text {
+                if let range = string.range(of: string) {
+                    let nsRange = NSRange(range, in: string)
+                    let attribute = NSMutableAttributedString.init(string: string as String)
+                    attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: self.boldTextColor, range: nsRange)
+                    textField.attributedText = attribute
+                }
+                currInput = string
+            }
+        }
         self.delegate?.textInputDidEndEditing?(self)
         self.scrollInputViewToVisible()
     }
@@ -177,15 +187,26 @@ extension DesignableTextInput: UITextFieldDelegate {
      }
      */
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let  char = string.cString(using: String.Encoding.utf8)!
-        let isBackSpace = (strcmp(char, "\\b") == -92)
-        if isBackSpace && self.state == .error {
-            self.state = .active
+        if delegate?.textInput?(
+            self,
+            shouldChangeCharactersIn: range,
+            replacementString: string
+        ) == false {
+            return false
         }
-        if let result = self.delegate?.textInput?(self, shouldChangeCharactersIn: range, replacementString: string) {
-            return result
+        updateText(string, at: range, in: textField)
+        if datasource?.isEmpty == false {
+            findDatasourceMatch(for: textField)
         }
-        return true
+        if let selection = textField.position(
+            from: textField.beginningOfDocument,
+            offset: range.location + string.count
+        ) {
+            textField.selectedTextRange = textField.textRange(from: selection, to: selection)
+        }
+        autocompleteDelegate?.provideDatasource(self)
+        delegate?.textInputDidChange?(self)
+        return false
     }
     public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if let result = self.delegate?.textInputShouldClear?(self) {
@@ -209,20 +230,23 @@ extension DesignableTextInput: UITextFieldDelegate {
     }
     private func findDatasourceMatch(for textField: UITextField) {
         guard let datasource = self.datasource else { return }
-        let allOptions = datasource.filter({ $0.hasPrefix(self.currInput.capitalized) })
-        let exactMatch = allOptions.filter({ $0 == self.currInput.capitalized })
-        let fullName = !exactMatch.isEmpty ? exactMatch.last! : allOptions.last ?? self.currInput
-        let substr = fullName//[self.currInput.length...]?.string ?? ""
-        if let range = fullName.range(of: substr) {
-            let nsRange = NSRange(range, in: fullName)
+        
+        let allOptions = datasource.filter({ $0.hasPrefix(currInput.capitalized) })
+        let exactMatch = allOptions.filter() { $0 == currInput.capitalized }
+        let fullName = exactMatch.last ?? (allOptions.last ?? self.currInput)
+        
+        let substr = fullName.substring(from: currInput.endIndex)
+
+        if fullName.count > currInput.count {
+            let nsRange =  NSRange(
+                location: currInput.count,
+                length: fullName.count - currInput.count)
             let attribute = NSMutableAttributedString.init(string: fullName as String)
-            attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: self.lightTextColor, range: nsRange)
+            attribute.addAttribute(
+                NSAttributedString.Key.foregroundColor,
+                value: self.lightTextColor,
+                range: nsRange)
             textField.attributedText = attribute
-        }
-    }
-    private func updateCursorPosition(in textField: UITextField) {
-        if let newPosition = textField.position(from: textField.beginningOfDocument, offset: self.currInput.count) {
-            textField.selectedTextRange = textField.textRange(from: newPosition, to: newPosition)
         }
     }
 }
