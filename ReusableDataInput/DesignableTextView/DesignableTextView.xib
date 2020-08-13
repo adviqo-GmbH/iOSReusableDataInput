@@ -20,8 +20,8 @@
                 <outlet property="rightImageView" destination="cdc-v1-XSB" id="y8b-k0-hYg"/>
                 <outlet property="textView" destination="Rf6-sv-bqU" id="vey-Ov-Eaz"/>
                 <outlet property="titleLabel" destination="Pbf-Oc-uoI" id="k9M-vd-HCe"/>
+                <outlet property="userInputHeight" destination="kqy-jJ-mzV" id="cXN-SM-90b"/>
                 <outlet property="userInputView" destination="A8X-a5-80t" id="zoj-Zj-M08"/>
-                <outlet property="userInputViewHeightConstraint" destination="kqy-jJ-mzV" id="5TR-48-LYY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

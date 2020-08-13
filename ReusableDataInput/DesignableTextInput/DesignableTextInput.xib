@@ -19,6 +19,7 @@
                 <outlet property="rightImageView" destination="NhV-Dc-fQP" id="Cyv-gj-Bl1"/>
                 <outlet property="textField" destination="Fvf-xT-uqa" id="mz5-Of-89x"/>
                 <outlet property="titleLabel" destination="Ynq-ga-39U" id="EU2-pE-wKZ"/>
+                <outlet property="userInputHeight" destination="yTc-u8-ckF" id="4ji-zF-8wS"/>
                 <outlet property="userInputView" destination="vzU-IK-Ry9" id="PSW-fU-QGd"/>
             </connections>
         </placeholder>
@@ -28,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aUD-Zg-LXi">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzU-IK-Ry9" userLabel="userInputView">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>

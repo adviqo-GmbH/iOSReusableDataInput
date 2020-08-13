@@ -15,7 +15,7 @@ extension InputView {
             let font = perhapsFont
             else
         {
-            return self.defaultMessageHeight
+            return self.defaultUserInputViewHeight
         }
         let width = self.userInputView.frame.width - 2 * InputViewConstants.standardOffset
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
@@ -27,7 +27,7 @@ extension InputView {
         let height = label.frame.height + 2 * InputViewConstants.standardOffset
         return height
     }
-    @objc internal func userInputViewHeight() -> CGFloat { InputViewConstants.defaultUserInputViewHeight }
+    @objc internal func userInputViewHeight() -> CGFloat { defaultUserInputViewHeight }
     internal var textWidth: CGFloat {
         var rightImageWidht = self.rightImageViewFrame(withImage: self.rightImage).size.width
         if rightImageWidht > 0 {
@@ -60,22 +60,23 @@ extension InputView {
             )
             return titleLabelFrame
         case .placeholder:
-            let textHeight = self.sampleString.height(withConstrainedWidth: self.textWidth, font: self.font)
+            let titleHeight = self.sampleString.height(withConstrainedWidth: self.textWidth, font: self.titleFont) + 2
             let titleLabelFrame = CGRect(
                 x: leftOffset,
-                y: (self.userInputView.bounds.height - textHeight) / 2,
+                y: titleHeight + InputViewConstants.standardOffset,
                 width: self.textWidth,
-                height: textHeight
+                height: self.userInputView.bounds.height - titleHeight - InputViewConstants.standardOffset * 2 + 4
             )
             return titleLabelFrame
         }
     }
     internal func rightButtonFrame() -> CGRect {
+        let titleHeight = self.sampleString.height(withConstrainedWidth: self.textWidth, font: self.titleFont) + 2
         let rightButtonFrame = CGRect(
             x: InputViewConstants.leftContentOffset + self.textWidth,
-            y: 0,
+            y: titleHeight,
             width: self.userInputView.bounds.width - InputViewConstants.leftContentOffset - self.textWidth,
-            height: self.userInputView.bounds.height
+            height: self.userInputView.bounds.height - titleHeight + 4
         )
         return rightButtonFrame
     }
@@ -112,9 +113,13 @@ extension InputView {
         guard let image = perhapsImage else {
             return CGRect.zero
         }
+        let titleHeight = self.sampleString.height(
+            withConstrainedWidth: userInputView.bounds.width,
+            font: self.titleFont
+        ) + 2
         let imageFrame = CGRect(
             x: self.userInputView.bounds.width - InputViewConstants.rightContentOffset - image.size.width,
-            y: (self.userInputView.bounds.height - image.size.height) / 2,
+            y: titleHeight + (self.userInputView.bounds.height - titleHeight + 4 - image.size.height ) / 2,
             width: image.size.width,
             height: image.size.height
         )
@@ -146,7 +151,7 @@ extension InputView {
         case .title:
             imageFrame = CGRect(
                 x: InputViewConstants.leftContentOffset,
-                y: titleHeight + InputViewConstants.standardOffset + 2,
+                y: titleHeight + (self.userInputView.bounds.height - titleHeight + 4 - imageSize.height ) / 2,
                 width: imageSize.width,
                 height: imageSize.height
             )

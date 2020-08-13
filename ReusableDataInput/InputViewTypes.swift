@@ -35,7 +35,7 @@ struct InputViewConstants {
     public static let rightContentOffset: CGFloat = 8
     public static let leftImageVerticalOffset: CGFloat = 12
     public static let titleAnimationDuration: TimeInterval = 0.3
-    static let defaultUserInputViewHeight: CGFloat = 50
+    static let defaultUserInputViewHeight: CGFloat = 64
     enum TextView {
         static let charactersLimit = 5000
     }

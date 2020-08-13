@@ -56,6 +56,7 @@ extension InputView {
         } else {
             heightConstraintRelation = .equal
         }
+        self.userInputHeight.constant = self.userInputViewHeight()
         self._heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: heightConstraintRelation, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: self.userInputViewHeight())
         self._heightConstraint.identifier = "InputViewHeightConstraint"
         self._heightConstraint.isActive = true

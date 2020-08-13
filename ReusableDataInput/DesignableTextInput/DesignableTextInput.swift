@@ -125,17 +125,15 @@
     }
     internal override func setupViewsOnLoad(withDataView dataView: UIView, andResponder responder: UIView) {
         super.setupViewsOnLoad(withDataView: dataView, andResponder: responder)
-        self.textField.delegate = self
-        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: self.textField, queue: nil) { notification in
-            guard
-                let textField = notification.object as? UITextField,
-                textField == self.textField
-            else { return }
-            self.delegate?.textInputDidChange?(self)
-        }
+        textField.delegate = self
+        textField.addTarget(self, action: #selector(handleTextDidCange(sender:)), for: .editingChanged)
         // Default falues
         #if TARGET_INTERFACE_BUILDER
         #endif
+    }
+    @objc private func handleTextDidCange(sender: UITextField) {
+        currInput = sender.text ?? ""
+        delegate?.textInputDidChange?(self)
     }
 }
 

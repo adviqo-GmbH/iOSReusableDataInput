@@ -228,6 +228,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput {
     @IBOutlet internal weak var titleLabel: UILabel!
     @IBOutlet internal weak var rightImageView: UIImageView!
     @IBOutlet internal weak var leftImageView: UIImageView!
+    @IBOutlet internal weak var userInputHeight: NSLayoutConstraint!
     // info
     @IBOutlet internal weak var infoView: UIView!
     @IBOutlet internal weak var infoLabel: UILabel!
@@ -243,9 +244,9 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput {
     // mode
     internal var _mode: InputViewMode = .placeholder
     internal let sampleString = "Gg"
-    internal let defaultMessageHeight: CGFloat = 50
     internal let maxLeftImageHeight: CGFloat = 20
     // TODO: ???
+    public var defaultUserInputViewHeight: CGFloat = 64
     public var titleOffsetYMinus: CGFloat = 0.0
     internal var titleFontScale: CGFloat {
         return self.titleFont.pointSize / self.font.pointSize
@@ -273,8 +274,8 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput {
     internal lazy var setupFramesOnceVar: () -> Void = {
         #if !TARGET_INTERFACE_BUILDER
         self.setupFramesOnce()
-        return {}
         #endif
+        return {}
     }()
     public override func layoutSubviews() {
         super.layoutSubviews()

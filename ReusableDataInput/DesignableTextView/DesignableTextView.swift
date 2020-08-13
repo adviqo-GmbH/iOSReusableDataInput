@@ -73,7 +73,6 @@ import UIKit
         self.setupViewsOnLoad(withDataView: self.textView, andResponder: self.textView)
     }
     @IBOutlet weak public var textView: UITextView!
-    @IBOutlet weak private var userInputViewHeightConstraint: NSLayoutConstraint!
     // MARK: - Private
     internal override func xibSetup() {
         super.xibSetup()
@@ -132,12 +131,12 @@ import UIKit
         return newSize.height
     }
     internal override func userInputViewHeight() -> CGFloat {
-        return max(self.defaultMessageHeight, self.textViewHeight() + InputViewConstants.standardOffset)
+        return max(self.defaultUserInputViewHeight, self.textViewHeight() + InputViewConstants.standardOffset)
     }
     fileprivate func setTextViewHeght() {
         self.dataView.frame = self.dataViewFrame(forMode: self.mode)
         let height = self.userInputViewHeight()
-        self.userInputViewHeightConstraint.constant = height
+        self.userInputHeight.constant = height
         self._heightConstraint.constant = height
         self.layoutIfNeeded()
     }
