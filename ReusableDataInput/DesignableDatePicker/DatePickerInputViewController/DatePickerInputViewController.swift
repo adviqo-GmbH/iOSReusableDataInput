@@ -73,6 +73,9 @@ class DatePickerInputViewController: UIViewController {
     fileprivate func setupViewsOnLoad() {
         #if !TARGET_INTERFACE_BUILDER
         self.datePicker.addTarget(self, action: #selector(datePickerDidChangeValue(sender:)), for: .valueChanged)
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
         #endif
     }
 }
