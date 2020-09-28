@@ -246,7 +246,7 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput {
     internal let sampleString = "Gg"
     internal let maxLeftImageHeight: CGFloat = 20
     // TODO: ???
-    public var defaultUserInputViewHeight: CGFloat = 64
+    public var defaultUserInputViewHeight: CGFloat = 50
     public var titleOffsetYMinus: CGFloat = 0.0
     internal var titleFontScale: CGFloat {
         return self.titleFont.pointSize / self.font.pointSize
@@ -290,6 +290,13 @@ public class InputView: BaseInputView, InputParametersProtocol, StatefulInput {
             currentFrame.origin.y += InputViewConstants.standardOffset
             scrollView.scrollRectToVisible(currentFrame, animated: true)
         }
+    }
+    internal func updateViewHeight() {
+        self.dataView.frame = self.dataViewFrame(forMode: self.mode)
+        let height = self.userInputViewHeight()
+        self.userInputHeight.constant = height
+        self._heightConstraint.constant = height
+        self.layoutIfNeeded()
     }
     internal func setupViewsOnLoad(withDataView dataView: UIView, andResponder responder: UIView) {
         self.dataView = dataView

@@ -22,7 +22,7 @@ import UIKit
     }
     @objc public func endEditTextView() {
         self.textView.endEditing(true)
-        setTextViewHeght()
+        updateViewHeight()
     }
     // MARK: - Getters & setters for superclas
     // didSet for font
@@ -57,12 +57,12 @@ import UIKit
             self.textView.text = nil
             self.state = .normal
             self.set(mode: .placeholder, animated: animated)
-            self.setTextViewHeght()
+            self.updateViewHeight()
             return
         }
         self.textView.text = text
         self.set(mode: .title, animated: animated)
-        self.setTextViewHeght()
+        self.updateViewHeight()
     }
     @objc public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,7 +84,7 @@ import UIKit
             rightImageView.isHidden = true
         case .active:
             rightImageView.isHidden = false
-            setTextViewHeght()
+            updateViewHeight()
         default:
             break
         }
@@ -132,13 +132,6 @@ import UIKit
     }
     internal override func userInputViewHeight() -> CGFloat {
         return max(self.defaultUserInputViewHeight, self.textViewHeight() + InputViewConstants.standardOffset)
-    }
-    fileprivate func setTextViewHeght() {
-        self.dataView.frame = self.dataViewFrame(forMode: self.mode)
-        let height = self.userInputViewHeight()
-        self.userInputHeight.constant = height
-        self._heightConstraint.constant = height
-        self.layoutIfNeeded()
     }
 }
 
@@ -194,7 +187,7 @@ extension DesignableTextView: UITextViewDelegate {
         return true
     }
     public func textViewDidChange(_ textView: UITextView) {
-        setTextViewHeght()
+        updateViewHeight()
     }
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)

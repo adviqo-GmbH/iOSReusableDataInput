@@ -10,7 +10,7 @@ import Foundation
 
 extension InputView {
     @objc internal func apply(state: InputViewState) {
-        self._heightConstraint.constant = self.userInputViewHeight()
+        updateViewHeight()
         switch state {
         case .normal:
             self.borderWidth = self.normalBorder
