@@ -19,7 +19,7 @@ extension InputView: InputViewProtocol {
         {
             return
         }
-        _ = self.resignFirstResponderForInputView()
+        self.resignFirstResponderForInputView()
     }
     public func isTouched(touch: UITouch) -> Bool {
         let touchPoint = touch.location(in: self)
