@@ -67,7 +67,7 @@ class MonthYearPickerInputViewController: UIViewController {
             self.picker.selectRow(indexOfYear, inComponent: 1, animated: false)
         }
     }
-    public var maximumYears: Int = 7
+    public var maximumYears: Int = 11
     // MARK: - Private properties
     @IBOutlet fileprivate weak var picker: UIPickerView!
     @IBOutlet fileprivate weak var dividerView: UIView!
