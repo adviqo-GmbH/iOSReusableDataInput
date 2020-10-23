@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ReusableDataInput"
-  s.version      = "1.0.17"
+  s.version      = "1.0.18"
   s.summary      = "Set of user input with animated title, formatting and data validation."
 
   # This description is used to generate tags and improve search results.
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform = :ios, "10.0"
+  s.platform = :ios, "11.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files = "ReusableDataInput/**/*.{h,m,swift}"
-  s.swift_version = "5.0"
+  s.swift_version = "5.3"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"

@@ -12,10 +12,10 @@ extension InputView {
     internal func setupNotifications() {
         let tapGesture = UITapGestureRecognizer(target: self, action: nil)
         tapGesture.cancelsTouchesInView = false
-        self.userInputView.addGestureRecognizer(tapGesture)
-        self.inputViewDidLayoutSubviewsObservation = NotificationCenter.default.observe(name: .inputViewDidLayoutSubviews, object: self, queue: nil) { [unowned self] _ in
+        userInputView.addGestureRecognizer(tapGesture)
+        inputViewDidLayoutSubviewsObservation = NotificationCenter.default.observe(name: .inputViewDidLayoutSubviews, object: self, queue: nil) { [weak self] _ in
             DispatchQueue.main.asyncAfter(deadline: .now()) {
-                self.setupFramesOnceVar()
+                self?.setupFramesOnceVar()
             }
         }
     }
