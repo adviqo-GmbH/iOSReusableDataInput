@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ReusableDataInput"
-  s.version      = "1.0.18"
+  s.version      = "1.0.19"
   s.summary      = "Set of user input with animated title, formatting and data validation."
 
   # This description is used to generate tags and improve search results.

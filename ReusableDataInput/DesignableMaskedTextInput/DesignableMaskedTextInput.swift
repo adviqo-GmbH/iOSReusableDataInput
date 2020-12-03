@@ -19,6 +19,8 @@ import InputMask
     @objc public var format: String? {
         didSet {
             guard let newFormat = format else {
+                self.maskedTextFieldDelegate = nil
+                self.textField.delegate = self
                 return
             }
             self.maskedTextFieldDelegate = MaskedTextFieldDelegate(primaryFormat: newFormat)
