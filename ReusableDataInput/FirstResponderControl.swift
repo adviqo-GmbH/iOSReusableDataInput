@@ -65,6 +65,7 @@ class FirstResponderControl: UIControl, UITextInputTraits {
         }
         self.delegate?.firstResponderControlDidBeginEditing(self)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+            self.reloadInputViews()
             if let scrollView = self.parentScrollView() {
                 var currentFrame = scrollView.convert(self.bounds, from: self)
                 currentFrame.origin.y += InputViewConstants.standardOffset
