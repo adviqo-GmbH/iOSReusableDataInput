@@ -12,7 +12,7 @@
 import UIKit
 import iOSReusableExtensions
 
-protocol FirstResponderControlDelegate: class {
+protocol FirstResponderControlDelegate: AnyObject {
     func firstResponderControlDidEndEditing(_ control: FirstResponderControl)
     func firstResponderControlDidBeginEditing(_ control: FirstResponderControl)
     func firstResponderControlShouldBeginEditing(_ control: FirstResponderControl) -> Bool
