@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public protocol TextInputDelegate: class, NSObjectProtocol {
+@objc public protocol TextInputDelegate: AnyObject, NSObjectProtocol {
     @objc optional func textInputShouldBeginEditing(_ textInput: DesignableTextInput) -> Bool
     @objc optional func textInputDidBeginEditing(_ textInput: DesignableTextInput)
     @objc optional func textInputShouldEndEditing(_ textInput: DesignableTextInput) -> Bool

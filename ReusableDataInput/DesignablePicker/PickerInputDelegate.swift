@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public protocol PickerInputDelegate: class, NSObjectProtocol {
+@objc public protocol PickerInputDelegate: AnyObject, NSObjectProtocol {
     func pickerInput(_ picker: DesignablePicker, doneWithValue value: String, andIndex index: Int)
     @objc optional func pickerInputDidCancel(_ picker: DesignablePicker)
     @objc optional func pickerInput(_ picker: DesignablePicker, changedWithValue value: String, andIndex index: Int)
