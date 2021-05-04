@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public protocol MonthYearPickerInputDelegate: AnyObject, NSObjectProtocol {
+@objc public protocol MonthYearPickerInputDelegate: NSObjectProtocol {
     func pickerInput(_ picker: DesignableMonthYearPicker, doneWithMonth month: Int, andYear year: Int)
     @objc optional func pickerInputDidCancel(_ picker: DesignableMonthYearPicker)
     @objc optional func pickerInput(_ picker: DesignableMonthYearPicker, changedWithMonth month: Int, year: Int)

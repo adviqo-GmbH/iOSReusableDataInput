@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DatePickerInputViewControllerDelegate: AnyObject, NSObjectProtocol {
+protocol DatePickerInputViewControllerDelegate: NSObjectProtocol {
     func datePickerInputViewControllerDidCancel(_ controller: DatePickerInputViewController)
     func datePickerInput(_ controller: DatePickerInputViewController, doneWithDate date: NSDate)
     func datePickerInput(_ controller: DatePickerInputViewController, changedWithDate date: NSDate)
