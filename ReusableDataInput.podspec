@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ReusableDataInput"
-  s.version      = "1.0.25"
+  s.version      = "1.0.27"
   s.summary      = "Set of user input with animated title, formatting and data validation."
 
   # This description is used to generate tags and improve search results.
@@ -53,10 +53,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author = { "Oleksandr Pronin" => "pronin.alx@gmail.com" }
-  # Or just: s.author    = "Oleksandr Pronin"
-  # s.authors            = { "Oleksandr Pronin" => "oleksandr.pronin@adviqo.com" }
-  # s.social_media_url   = "http://twitter.com/Oleksandr Pronin"
+  s.author    = "Oleksandr Pronin"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
