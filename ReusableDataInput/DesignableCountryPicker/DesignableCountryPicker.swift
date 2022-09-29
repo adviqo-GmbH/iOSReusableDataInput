@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CountryKit
 
 @IBDesignable public class DesignableCountryPicker: DesignablePicker {
     @objc public var locale: NSLocale?
@@ -41,7 +40,6 @@ import CountryKit
                     self.selectedIndex = data.distance(from: data.startIndex, to: index)
                 }
             } else if newValue.nilIfEmpty == nil {
-                // TODO: refactor else case
                 self.text = nil
                 self.leftImage = nil
                 self._value = nil

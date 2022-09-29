@@ -1,12 +1,10 @@
 PODS:
-  - CountryKit (2.0.1)
   - InputMask (6.1.0)
   - iOSReusableExtensions (1.0.19):
     - InputMask (~> 6.0)
   - SwiftLint (0.49.1)
 
 DEPENDENCIES:
-  - CountryKit
   - InputMask (~> 6.0)
   - iOSReusableExtensions
   - SwiftLint
@@ -15,16 +13,14 @@ SPEC REPOS:
   https://github.com/adviqo-GmbH/iOSPodSpecs.git:
     - iOSReusableExtensions
   https://github.com/CocoaPods/Specs.git:
-    - CountryKit
     - InputMask
     - SwiftLint
 
 SPEC CHECKSUMS:
-  CountryKit: 29eeed8159ddfe30056cf5fbe68ad8ab111e8139
   InputMask: 71d291dc54d2deaeac6512afb6ec2304228c0bb7
   iOSReusableExtensions: f3f1795bfab6255282316fa2f5a30d7cc0137e24
   SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
 
-PODFILE CHECKSUM: ab9f6e2c87252a270da5391aa90e5647cb038a33
+PODFILE CHECKSUM: 6f618f9c86180ba14459d4fd6c3fa8f4349537e3
 
 COCOAPODS: 1.11.3

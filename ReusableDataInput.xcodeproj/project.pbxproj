@@ -69,6 +69,11 @@
 		09C6DCB0237FFA9A00AC2C95 /* DesignableTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C6DCAE237FFA9900AC2C95 /* DesignableTextView.xib */; };
 		09C6DCB42380090600AC2C95 /* TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C6DCB32380090600AC2C95 /* TextViewDelegate.swift */; };
 		4C6C9AE3376D490359684B75 /* Pods_ReusableDataInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F250DFF3CC12ED48DB36A7 /* Pods_ReusableDataInput.framework */; };
+		6516D05628E58DDC00CEBE5B /* CountryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6516D05128E58DD600CEBE5B /* CountryKit.swift */; };
+		6516D05728E58DDC00CEBE5B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6516D05228E58DD600CEBE5B /* Country.swift */; };
+		6516D05828E58DDC00CEBE5B /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6516D05328E58DD700CEBE5B /* Flags.xcassets */; };
+		6516D05928E58DDC00CEBE5B /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6516D05428E58DDC00CEBE5B /* Countries.swift */; };
+		6516D05A28E58DDC00CEBE5B /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6516D05528E58DDC00CEBE5B /* String+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +142,11 @@
 		09C6DCB32380090600AC2C95 /* TextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewDelegate.swift; sourceTree = "<group>"; };
 		3474C5FDA3E3DD8E45D95A48 /* Pods-ReusableDataInput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.release.xcconfig"; path = "Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.release.xcconfig"; sourceTree = "<group>"; };
 		472202785B283535FD15DFCD /* Pods-ReusableDataInput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReusableDataInput.debug.xcconfig"; path = "Target Support Files/Pods-ReusableDataInput/Pods-ReusableDataInput.debug.xcconfig"; sourceTree = "<group>"; };
+		6516D05128E58DD600CEBE5B /* CountryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryKit.swift; sourceTree = "<group>"; };
+		6516D05228E58DD600CEBE5B /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		6516D05328E58DD700CEBE5B /* Flags.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Flags.xcassets; sourceTree = "<group>"; };
+		6516D05428E58DDC00CEBE5B /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		6516D05528E58DDC00CEBE5B /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		F5F250DFF3CC12ED48DB36A7 /* Pods_ReusableDataInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReusableDataInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -182,6 +192,7 @@
 		093F810321F09E15000D0525 /* ReusableDataInput */ = {
 			isa = PBXGroup;
 			children = (
+				6516D04628E58C1700CEBE5B /* CountryKit */,
 				093F810421F09E15000D0525 /* ReusableDataInput.h */,
 				093F810521F09E15000D0525 /* Info.plist */,
 				0959848521F0ECB600A9AA4C /* SDKUtility.swift */,
@@ -360,6 +371,18 @@
 			path = DesignableTextView;
 			sourceTree = "<group>";
 		};
+		6516D04628E58C1700CEBE5B /* CountryKit */ = {
+			isa = PBXGroup;
+			children = (
+				6516D05428E58DDC00CEBE5B /* Countries.swift */,
+				6516D05228E58DD600CEBE5B /* Country.swift */,
+				6516D05128E58DD600CEBE5B /* CountryKit.swift */,
+				6516D05328E58DD700CEBE5B /* Flags.xcassets */,
+				6516D05528E58DDC00CEBE5B /* String+Utils.swift */,
+			);
+			path = CountryKit;
+			sourceTree = "<group>";
+		};
 		F7C8923E02A1D4492D9B3107 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +476,7 @@
 				0969A80821F8C88B00845CBD /* DesignableMonthYearPicker.xib in Resources */,
 				09BBC280239A873F00293BD3 /* DesignableCountryPicker.xib in Resources */,
 				0958C79521F726EF00D864C7 /* PickerInputViewController.xib in Resources */,
+				6516D05828E58DDC00CEBE5B /* Flags.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +544,7 @@
 				093F813521F0C840000D0525 /* FirstResponderControl.swift in Sources */,
 				095B6EBB241C01EA0099A0E7 /* InputView+UIControl.swift in Sources */,
 				093F813D21F0CD2A000D0525 /* InputViewValidator.swift in Sources */,
+				6516D05728E58DDC00CEBE5B /* Country.swift in Sources */,
 				0969A7FB21F8BE1A00845CBD /* DesignableMaskedTextInput.swift in Sources */,
 				095B6EC1241C03500099A0E7 /* InputView+xibAndBundle.swift in Sources */,
 				09C6DCB42380090600AC2C95 /* TextViewDelegate.swift in Sources */,
@@ -529,6 +554,7 @@
 				0959848621F0ECB600A9AA4C /* SDKUtility.swift in Sources */,
 				0958C79621F726EF00D864C7 /* PickerInputViewController.swift in Sources */,
 				095B6EBF241C02D00099A0E7 /* InputView+rightImage.swift in Sources */,
+				6516D05628E58DDC00CEBE5B /* CountryKit.swift in Sources */,
 				09436E2321F2117B00AD010A /* DesignableTextInput.swift in Sources */,
 				09BBC27F239A873F00293BD3 /* CountryPickerView.swift in Sources */,
 				095B6EAB241BFBB60099A0E7 /* InputView+InputViewProtocol.swift in Sources */,
@@ -539,9 +565,11 @@
 				093F813321F0BFE5000D0525 /* Notification.Name+Extension.swift in Sources */,
 				093F813921F0CC5E000D0525 /* BaseInputView.swift in Sources */,
 				095E514A241BDE58008550FC /* DesignablePhoneNumberInput.swift in Sources */,
+				6516D05A28E58DDC00CEBE5B /* String+Utils.swift in Sources */,
 				09436E2621F2124200AD010A /* TextInputDelegate.swift in Sources */,
 				095B6EAF241BFCBF0099A0E7 /* InputView+InputParametersProtocol.swift in Sources */,
 				09436E1E21F2105C00AD010A /* InputViewCollectionProtocol.swift in Sources */,
+				6516D05928E58DDC00CEBE5B /* Countries.swift in Sources */,
 				09436E2821F213B500AD010A /* AutoCompleteTextFieldDelegate.swift in Sources */,
 				093F812D21F0ADA7000D0525 /* InputViewTypes.swift in Sources */,
 				093F813B21F0CCB8000D0525 /* InputView.swift in Sources */,
@@ -705,7 +733,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.29;
+				MARKETING_VERSION = 1.0.30;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adviqo.ReusableDataInput;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -735,7 +763,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.29;
+				MARKETING_VERSION = 1.0.30;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adviqo.ReusableDataInput;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

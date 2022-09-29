@@ -12,7 +12,6 @@ target 'ReusableDataInput' do
   # Pods for ReusableDataInput
   pod 'InputMask', '~> 6.0'
   pod 'iOSReusableExtensions'
-  pod 'CountryKit'
   pod 'SwiftLint'
 
 end
