@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.0'
+platform :ios, '12.0'
 
 # CocoaPods master specs
 source 'https://github.com/CocoaPods/Specs.git'
@@ -10,7 +10,7 @@ target 'ReusableDataInput' do
   use_frameworks!
 
   # Pods for ReusableDataInput
-  pod 'InputMask', '~> 4.0'
+  pod 'InputMask', '~> 6.0'
   pod 'iOSReusableExtensions'
   pod 'CountryKit'
   pod 'SwiftLint'

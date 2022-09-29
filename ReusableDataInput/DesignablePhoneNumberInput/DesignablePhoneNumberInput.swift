@@ -22,7 +22,7 @@ import InputMask
             guard
                 let countries = self.countries,
                 !countries.isEmpty
-                else
+            else
             {
                 return nil
             }
@@ -31,7 +31,7 @@ import InputMask
         set {
             guard
                 let isoCodeList = newValue
-                else
+            else
             {
                 return
             }
@@ -49,7 +49,7 @@ import InputMask
         guard
             let country = self.country,
             let phoneCode = country.phoneCode
-            else
+        else
         {
             return nil
         }
@@ -71,7 +71,7 @@ import InputMask
                 let countryCode = newValue,
                 let countries = self.countries,
                 !countries.isEmpty
-                else
+            else
             {
                 self.country = nil
                 return
@@ -100,13 +100,13 @@ import InputMask
         guard
             var phoneNumber = self._value,
             !phoneNumber.isEmpty
-            else
+        else
         {
             return nil
         }
         guard
             let phoneCode = self.phoneCode
-            else
+        else
         {
             return phoneNumber
         }
@@ -158,7 +158,9 @@ import InputMask
             guard let mask = try? Mask(format: format) else {
                 preconditionFailure("Unable to create Mask!")
             }
-            self.text = mask.apply(toText: CaretString(string: valueString, caretPosition: valueString.endIndex)).formattedText.string
+            self.text = mask.apply(toText: CaretString(string: valueString,
+                                                       caretPosition: valueString.endIndex,
+                                                       caretGravity: CaretString.CaretGravity.forward(autocomplete: false))).formattedText.string
             self.maskedDelegate?.textInput?(self, didFillMandatoryCharacters: true, didExtractValue: valueString)
         }
     }
@@ -184,7 +186,7 @@ import InputMask
             self.leftImage = country.flagImage
             guard
                 let phoneCode = country.phoneCode
-                else
+            else
             {
                 return
             }
@@ -222,7 +224,9 @@ import InputMask
             /*
              print("[\(type(of: self)) \(#function)] phoneString: \(phoneString)")
              */
-            self.text = mask.apply(toText: CaretString(string: phoneString, caretPosition: phoneString.endIndex)).formattedText.string
+            self.text = mask.apply(toText: CaretString(string: phoneString,
+                                                       caretPosition: phoneString.endIndex,
+                                                       caretGravity: CaretString.CaretGravity.forward(autocomplete: false))).formattedText.string
         }
     }
     fileprivate func searchBy(phoneNumber perhapsPhoneNumber: String?) -> Country? {
@@ -254,19 +258,19 @@ import InputMask
         }
         /*
          from questico
-        let perhapsCountry = countries.last { country -> Bool in
-            guard let phoneCode = country.phoneCode else {
-                return false
-            }
-            let phoneCodeString = String(phoneCode)
-            guard !phoneCodeString.isEmpty else {
-                return false
-            }
-            guard phoneNumber.hasPrefix(phoneCodeString) else {
-                return false
-            }
-            return true
-        }        */
+         let perhapsCountry = countries.last { country -> Bool in
+         guard let phoneCode = country.phoneCode else {
+         return false
+         }
+         let phoneCodeString = String(phoneCode)
+         guard !phoneCodeString.isEmpty else {
+         return false
+         }
+         guard phoneNumber.hasPrefix(phoneCodeString) else {
+         return false
+         }
+         return true
+         }        */
         guard let country = perhapsCountry else { return nil }
         return country
     }
@@ -306,18 +310,18 @@ extension DesignablePhoneNumberInput {
         }
         /*
          from questico
-        if let country = self.country, let phoneCode = country.phoneCode {
-            let phoneCodeString = String(phoneCode)
-            if value.length >= phoneCodeString.length {
-                if let countryTMP = self.searchBy(phoneNumber: value) {
-                    self.leftImage = countryTMP.flagImage
-                } else {
-                    self.leftImage = nil
-                }
-                return
-            }
-        }
-        */
+         if let country = self.country, let phoneCode = country.phoneCode {
+         let phoneCodeString = String(phoneCode)
+         if value.length >= phoneCodeString.length {
+         if let countryTMP = self.searchBy(phoneNumber: value) {
+         self.leftImage = countryTMP.flagImage
+         } else {
+         self.leftImage = nil
+         }
+         return
+         }
+         }
+         */
         if let country = self.searchBy(phoneNumber: value) {
             self.country = country
         } else {

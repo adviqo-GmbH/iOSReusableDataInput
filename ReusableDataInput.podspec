@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ReusableDataInput"
-  s.version      = "1.0.28"
+  s.version      = "1.0.29"
   s.summary      = "Set of user input with animated title, formatting and data validation."
 
   # This description is used to generate tags and improve search results.
@@ -62,7 +62,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform = :ios, "11.0"
+  s.platform = :ios, "12.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -140,7 +140,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "InputMask", "~> 4.0"
+  s.dependency "InputMask", "~> 6.0"
   s.dependency "iOSReusableExtensions"
   s.dependency "CountryKit"
 

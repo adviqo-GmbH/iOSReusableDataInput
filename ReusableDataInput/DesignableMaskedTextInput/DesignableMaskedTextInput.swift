@@ -40,7 +40,7 @@ import InputMask
                 let valueString = self._value,
                 !valueString.isEmpty,
                 let format = self.format
-                else
+            else
             {
                 self.text = nil
                 self.maskedDelegate?.textInput?(self, didFillMandatoryCharacters: false, didExtractValue: "")
@@ -49,7 +49,7 @@ import InputMask
             guard let mask = try? Mask(format: format) else {
                 preconditionFailure("Unable to create Mask")
             }
-            self.text = mask.apply(toText: CaretString(string: valueString, caretPosition: valueString.endIndex)).formattedText.string
+            self.text = mask.apply(toText: CaretString(string: valueString, caretPosition: valueString.endIndex, caretGravity: CaretString.CaretGravity.forward(autocomplete: false))).formattedText.string
             self.maskedDelegate?.textInput?(self, didFillMandatoryCharacters: true, didExtractValue: valueString)
         }
     }
@@ -61,8 +61,8 @@ import InputMask
         super.setupViewsOnLoad(withDataView: dataView, andResponder: responder)
         self.textField.delegate = self
         // Default falues
-        #if TARGET_INTERFACE_BUILDER
-        #endif
+#if TARGET_INTERFACE_BUILDER
+#endif
     }
 }
 
